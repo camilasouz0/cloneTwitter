@@ -7,11 +7,13 @@ body{
     position: absolute; top: 15px; left: 350px; /*posição do formulario*/
 }
 .coluna_inicial input:hover{
+    outline: none; /*remove contorno azul*/
     border-radius: 30px ; /*borta arredondada*/
     background-color: rgb(242, 243, 243);
     width: 200px;  /*largura*/
 }
 .botoes_coluna input{
+    outline: none; /*remove contorno azul*/
     display:block;/*forma uma coluna */ 
     border-radius: 30px ; /*borta arredondada*/
     width: 200px;  /*largura */
@@ -22,6 +24,7 @@ body{
     border: none; 
 } 
 .tweetar input{
+    outline: none; /*remove contorno azul*/
     display:block;/*forma uma coluna */ 
     border-radius: 30px ; /*borta arredondada*/
     width: 200px;  /*largura */
@@ -66,6 +69,7 @@ h4{
     border-bottom: 9px solid rgb(216, 226, 226); 
 }
 .postar_tweet input{
+    outline: none; /*remove contorno azul*/
     border: none;
     font-size: 18px;
     position: absolute; left: 85px; top: 75px;/*posição do input*/
@@ -74,6 +78,7 @@ h4{
     float:left;
 }
 .enviar input{
+    outline: none; /*remove contorno azul*/
     position: absolute; left: 485px; top:140px;/*posição do botão*/ 
     display:block;/*forma uma coluna */ 
     border-radius: 30px; /*borta arredondada*/ 
@@ -89,6 +94,7 @@ h4{
     border-top: none; 
 }
 .buscar input{
+    outline: none; /*remove contorno azul*/
     position: absolute; left: 1220px; top:10px;/*posição do busca*/ 
     border-radius: 30px; /*borta arredondada*/ 
     font-size: 17px;
@@ -100,6 +106,7 @@ h4{
 
 }
 .dentro_conteiner{
+    outline: none; /*remove contorno azul*/
     position: absolute; left: 1220px; top:70px;/*posição do formulario*/ 
     border-radius: 30px; /*borta arredondada*/
     font-size: 17px;

@@ -17,6 +17,7 @@ body{
     
 }
 .formularios input{
+    outline: none; /*remove contorno azul*/
     border-top-width:0;
     border-left-width:0;/*tirar borda lado esquerdo*/
     background: rgb(245, 248, 250);
@@ -34,6 +35,7 @@ body{
     float:left;
 }
 .estilo_botao_entrar{
+    outline: none; /*remove contorno azul*/
     position: absolute; top: 15px; left: 400px; /*posição do botao */
     color: rgb(29, 161, 242); 
     background: white;
@@ -74,6 +76,7 @@ h3{
     height: 35px; /*altura*/
 }
 .cadastre-se{
+    text-decoration:none; /*sublinhado da linha*/
     position: absolute; top: 380px; left: 1250px;
     background: rgb(29, 161, 242);
     color: white;
