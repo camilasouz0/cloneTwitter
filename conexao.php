@@ -16,6 +16,6 @@ function getConnection(){
     } catch(PDOException $e){
         echo 'Erro: '.$e->getMessage();
     }
-
+//teste
 }
 ?>
