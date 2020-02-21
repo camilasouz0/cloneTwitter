@@ -1,9 +1,0 @@
-git push /*para por no git*/
-git status
-git add -A
-git status
-git commit
-ctrl+s /*para salvar*/
-ctrl+x /*Para sair*/
-git push /*para por no git*/
-
