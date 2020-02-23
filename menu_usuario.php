@@ -1,9 +1,10 @@
+<?php require_once "conexao.php"; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Página Inicial/Twitter</title>
-    <link rel="stylesheet" href="estilo_menu_usuario.css">
+    <link rel="stylesheet" href="css/style_menu.css">
 </head>
 <body>
     <div class="coluna_inicial">

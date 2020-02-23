@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="estilo.css">
+    <style type="text/css"></style>
+    <link rel="stylesheet" href="css/style.css">
     <title>Twitter</title>
 </head>
 <body>
     <div class="formularios">
-        <form classe="formulario_login" action="" action="GET">
-            <div class="estilo_login_e_senha">
+        <form classe="formulario_nome" method="POST" action="conexao.php">
                 <label class="label_1">Celular, e-mail ou nome de usuário</label>
-                <input name="login" type="text" required>          
-            </div>                
-        </form>        
-        <form action="">
+                <input name="login" type="text" required>        
+        </form>   
+        <form class="formulario_senha" method="POST" action="conexao.php">
             <label class="label_2">Senha</label>    
-            <input name="senha" type="password" required>         
-        </form>
+            <input name="senha" type="password" required>  
+            <input class="estilo_botao_entrar" type="submit" value="Entrar">     
+        </form>                 
     </div>
-    <input class="estilo_botao_entrar" type="submit" name="botao_entrar" value="Entrar" id="entrar">
+
+    
     <a class="estilo_esqueceu_senha" href="recuperar_senha.html">Esqueceu sua senha?</a>
     <h1>
         Saiba o que está 
@@ -31,7 +30,7 @@
 
     <form class="formulario_cadastre-se">
         <a class="cadastre-se" type="submit" name="fazer_cadastro" href="cadastro_usuario.html">Inscreva-se</a>
-        <a class="entrar" value="Entrar" type="submit">Entrar</a>
+        <!-- <input class="entrar" value="Entrar" type="submit"> -->
     </form>
 </body>
 </html>

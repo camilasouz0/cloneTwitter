@@ -1,80 +1,82 @@
 body{
     background:linear-gradient( to right, rgb(113, 201, 248) 25%, rgb(113, 201, 248) 25%, rgb(113, 201, 248) 50%, White 10%,White 100%, White 80%, White 80%);
-
+    font-family: Ubuntu;
 }
 .formularios {
     display: block;
     position: absolute; top: 15px; left: 1250px; /*posição do formulario*/
+     
 }
-.formularios > form {
+.formularios > form{
+    text-overflow: ellipsis;/*se o texto do label for grande acrescenta reticências*/
+    overflow: hidden;/*para o texto não vazar para fora do label */
     display: inline-block;    
     background: rgb(245, 248, 250);
     width: 200px; /*largura*/
-    border-bottom-style:  solid;
     padding-right: 15px;
     top: 10px; 
-    color:slategrey;
-    
-}
-.formularios input{
+    color:slategrey;  
     outline: none; /*remove contorno azul*/
-    border-top-width:0;
-    border-left-width:0;/*tirar borda lado esquerdo*/
-    background: rgb(245, 248, 250);
-    width: 197px;   
+    border-bottom-style:  solid; /*borda parte de baixo do input*/
+
+}
+.formularios input:not(.estilo_botao_entrar){
+    background-color: rgb(232, 240, 254);  
     border: 0 none; 
     font-size: 18px;
-}
-.label_1{
-    height: 30px;
-    float:left;
-    white-space: nowrap;/*para o texto não vazar para fora do label*/
-}
-.label_2{
-    height: 30px;
-    float:left;
+    /* cursor: auto; */
+    height: 30px; /*altura*/
+    outline: none; /*remove contorno azul*/  
+    /* border-color: rgb(136, 153, 166); */
+    border-radius: 0px; /*borta arredondada*/
+    /* border-bottom: 3px solid rgb(29, 161, 242); */
+
+} 
+.formularios label{
+    background: rgb(245, 248, 250);/*cor do input*/
+    font-size: 15px;
+    white-space: nowrap;/*para o texto quabrar dentro do label */
+    padding-top: 5px;
+    line-height: 1.6; /*por o texto do label mais para baixo*/
+    padding-left: 10px;/*ajustar posição do label dando um espaço*/
+
 }
 .estilo_botao_entrar{
-    outline: none; /*remove contorno azul*/
-    position: absolute; top: 15px; left: 400px; /*posição do botao */
-    color: rgb(29, 161, 242); 
+    position: absolute; top: 10px; left: 460px;/*posição do botão*/
+    color: rgb(29, 161, 242);
     background: white;
     border-radius: 30px; /*borta arredondada*/
     width: 80px;  /*largura*/
     height: 40px; /*altura*/
-    left: 1810px; /*positão do botão*/
-    top: 25px;
     border-left: 1px solid rgb(29, 161, 242); /*cor da borda*/
     border-right: 1px solid rgb(29, 161, 242);
     border-bottom: 1px solid rgb(29, 161, 242);
     border-top: 1px solid rgb(29, 161, 242);
+    font-weight: bold;/*negrito*/
 }
 .estilo_esqueceu_senha{
-    position: absolute; top: 80px; left: 1580px; 
+    position: absolute; top: 95px; left: 1580px; 
     text-decoration:none; /*sublinhado da linha*/
     color: rgb(29, 161, 242); 
    
 }
 h1{
-    font-family: Ubuntu;
     font-weight: bold;/*negrito*/
     position: absolute; top: 140px; left: 1185px; /*posição do texto*/
     white-space: pre;
 }
 h3{
-    font-family:  Ubuntu;
     font-size: medium;
     font-weight: bold;/*negrito*/
     position: absolute; top: 330px; left: 1255px; /*posição do texto*/
 
 }
-.formulario_cadastre-se a{
-    font-family:  Ubuntu;
+/* .formulario_cadastre-se a, input{
     font-weight: bold;
     border-radius: 30px; 
-    width: 380px; /*largura*/
-    height: 35px; /*altura*/
-}
+    width: 380px; /*largura
+    height: 35px; altura
+} */
 .cadastre-se{
     text-decoration:none; /*sublinhado da linha*/
     position: absolute; top: 380px; left: 1250px;
@@ -82,13 +84,13 @@ h3{
     color: white;
     text-align: center;
 }
-.entrar{
+/* .entrar{
     position: absolute; top: 430px; left: 1250px;
     color: rgb(29, 161, 242); 
     background: white;
-    border-left: 1px solid rgb(29, 161, 242); /*cor da borda*/
+    border-left: 1px solid rgb(29, 161, 242); /*cor da borda
     border-right: 1px solid rgb(29, 161, 242);
     border-bottom: 1px solid rgb(29, 161, 242);
     border-top: 1px solid rgb(29, 161, 242);
     text-align: center;
-}
+} */
