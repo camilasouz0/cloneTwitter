@@ -1,4 +1,4 @@
-<?php require_once "conexao.php"; ?>
+<?php require_once "index.php"; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

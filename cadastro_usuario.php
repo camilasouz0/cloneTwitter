@@ -1,6 +1,6 @@
 <?php 
  
-$login = $_POST['login'];
+/*$login = $_POST['login'];
 $senha = MD5($_POST['senha']);
 $connect = mysql_connect('localhost','nome','senha');
 $db = mysql_select_db('dbtwitter');
@@ -36,5 +36,5 @@ $logarray = $array['login'];
           .href='cadastro_usuario.html'</script>";
         }
       }
-    }
+    }*/
 ?>
