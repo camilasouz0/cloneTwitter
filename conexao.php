@@ -12,7 +12,8 @@ define( 'user', 'camilasouza' );
 define( 'password', 'camila123' );
 define( 'database', 'dbtwitter');
 
-
+function getConexao(){
+    global $con;
 try
 {
     $con = new PDO( 'mysql:host=' . host . ';dbname=' . database, user, password );
@@ -20,9 +21,12 @@ try
 catch ( PDOException $e )
 {
     echo 'Erro ao conectar com o MySQL: ' . $e->getMessage();
+    //throw new PDOException($e);
+}
+return $con;
 }
 
-if($_POST['email']){
+/*if($_POST['email']){
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confsenha  = $_POST['confsenha'];
@@ -41,5 +45,5 @@ if ($senha == $confsenha) {
     alert('As senhas não conferem');window.location
     .href='cadastro_usuario.html'</script>";
 }
-}
+}*/
 ?>

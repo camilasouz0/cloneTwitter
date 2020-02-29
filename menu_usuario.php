@@ -1,4 +1,4 @@
-<?php require_once "index.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,21 +35,34 @@
             <input type="submit" value="Itens salvos">
             <input type="submit" value="Listas">
             <input type="submit" value="Perfil">
-            <input type="submit" value="Mais"><br>   
+            <a href="index.html" name="sair">Sair</a><br>   
         </div> 
         <div class="tweetar">
             <input type="submit" value="Tweetar">
         </div>        
     </div>
     <div class="scroll">
-            <form class="postar_tweet">
+            <form class="postar_tweet" method="POST" action="index.php">
                 <h4>Página Inicial</h4>
                 <!-- <textarea name="meu_tweet" type="text"></textarea> -->
-                <input name="meu_tweet" type="text" placeholder="O que está acontecendo?"><br>
+                <input name="tweet" id="tweet" type="text" placeholder="O que está acontecendo?"><br>
                 <div class="enviar">
-                    <input type="submit" value="Tweetar"><br>  
+                    <input type="submit" name="meu_tweet" value="Tweetar"><br>  
+                    <?php
+            if(isset($_POST['meu_tweet'])){
+              echo'aa';
+      }
+      //if($_POST['meu_tweet']){
+      //$tweet = $_POST['tweet'];
+      //$sql = "INSERT INTO postTweet(tweet) VALUES ('$tweet')";
+      //$sql -> bindValue(':tweet', $tweet);
+      //$sql -> execute();
+        //}
+
+        ?>
                 </div>              
             </form>
+            
     </div> 
     <div class="conteiner"> 
         <div class="buscar">    

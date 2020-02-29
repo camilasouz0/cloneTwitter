@@ -1,40 +1,50 @@
-<?php 
- 
-/*$login = $_POST['login'];
-$senha = MD5($_POST['senha']);
-$connect = mysql_connect('localhost','nome','senha');
-$db = mysql_select_db('dbtwitter');
-$query_select = "SELECT login FROM usuarios WHERE login = '$login'";
-$select = mysql_query($query_select,$connect);
-$array = mysql_fetch_array($select);
-$logarray = $array['login'];
- 
-  if($login == "" || $login == null){
-    echo"<script language='javascript' type='text/javascript'>
-    alert('O campo login deve ser preenchido');window.location.href='
-    cadastro.html';</script>";
- 
-    }else{
-      if($logarray == $login){
- 
-        echo"<script language='javascript' type='text/javascript'>
-        alert('Esse login já existe');window.location.href='
-        cadastro.html';</script>";
-        die();
- 
-      }else{
-        $query = "INSERT INTO usuario (login,senha) VALUES ('$login','$senha')";
-        $insert = mysql_query($query,$connect);
-         
-        if($insert){
-          echo"<script language='javascript' type='text/javascript'>
-          alert('Usuário cadastrado com sucesso!');window.location.
-          href='index.html'</script>";
-        }else{
-          echo"<script language='javascript' type='text/javascript'>
-          alert('Não foi possível cadastrar esse usuário');window.location
-          .href='cadastro_usuario.html'</script>";
-        }
-      }
-    }*/
+<?php
+	include_once("conexao.php");
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Increva-se no Twitter</title>
+</head>
+<body>
+    <div id="corpo-form-cad">
+        
+        <form classe="formulario_cadastro" method="POST" action="cadastro_usuario.php">
+            <label class="label_1">Nome</label>
+                <input name="nome" type="text" maxlength="30" ><br>
+                <label class="label_2">Email</label>
+                <input name="email" type="email" maxlength="40" ><br>       
+                <label class="label_2">Senha</label>
+                <input name="senha" type="password" maxlength="32" ><br>
+                <label class="label_2">Confirmar Senha</label>
+                <input name="confsenha" type="password" maxlength="32">  
+                  
+                <input class="botao_avancar" type="submit" value="Avançar">                         
+        </form> 
+    </div>  
+    <?php
+            
+                //if($_POST['senha']){
+                //$email = $_POST['email'];
+                //$senha = $_POST['senha'];
+                //$confsenha  = $_POST['confsenha'];
+                
+        
+                if ($senha == $confsenha) {
+                header('Location: index.php');
+                $inserirBanco = $con -> prepare("INSERT INTO usuario(email, senha) VALUES ('$email', '$senha')");
+            $inserirBanco -> bindParam(':email', $email);
+            $inserirBanco -> bindParam(':senha', $senha);
+            $inserirBanco -> execute();
+        }else{
+            //header('Location: cadastro_usuario.html');
+            //alert('As senhas não conferem');      
+            echo"<script language='javascript' type='text/javascript'>
+            alert('As senhas não conferem');window.location
+            .href='cadastro_usuario.html'</script>";
+        }
+    //}
+                ?>          
+</body>
+</html>
