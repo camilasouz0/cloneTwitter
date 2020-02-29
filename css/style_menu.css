@@ -64,11 +64,13 @@ h4{
 
 }
 .postar_tweet{
+    display:block;/*forma uma coluna */ 
     width: 600px;  
     height: 200px;/*altura*/
     border-bottom: 9px solid rgb(216, 226, 226); 
 }
 .postar_tweet input{
+    display:block;/*forma uma coluna */ 
     outline: none; /*remove contorno azul*/
     border: none;
     font-size: 18px;

@@ -16,7 +16,7 @@ $senha = $_POST['senha'];
     if($buscarUsuario->rowCount()>0){
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        header("Location: menu_usuario.php"); 
+        header("Location: menu_usuario.html"); 
         } 
         else {
           echo 'Usuário e(ou) senha inválido!';
