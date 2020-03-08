@@ -1,6 +1,4 @@
-<?php 
-include_once("conexao.php");
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,7 +16,7 @@ include_once("conexao.php");
         <form class="formulario_senha" method="POST" action="index.php"> -->
             <label class="label_2">Senha</label>    
             <input id="senha" name="senha" type="password" required>  
-            <input class="estilo_botao_entrar" mane="entrar" type="submit" value="Entrar">     
+            <input class="estilo_botao_entrar" name="entrar" type="submit" value="Entrar">     
         </form>  
                      
     </div>

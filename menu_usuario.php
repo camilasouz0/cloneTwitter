@@ -1,8 +1,9 @@
-<?php 
-include_once("conexao.php");
+<?php
+ 
+require 'conexao.php';// a sessao inicia na conexão com o banco
 
-//}
-?>
+if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,44 +40,30 @@ include_once("conexao.php");
             <input type="submit" value="Itens salvos">
             <input type="submit" value="Listas">
             <input type="submit" value="Perfil">
-            <a href="index.php" name="sair">Sair</a><br>   
+            <!-- <form class="sair_sessao" method="POST" action="sair.php">
+                <input  name="sair" type="submit" value="Sair">
+            <form> -->
+            <a  name="sair" href="sair.php">Sair</a>
         </div> 
         <div class="tweetar">
             <input type="submit" value="Tweetar">
         </div>        
     </div>
     <div class="scroll">
-            <form class="postar_tweet" method="POST">
+            <form class="postar_tweet" method="POST" action="tweets.php">
                 <h4>Página Inicial</h4>
                 <!-- <textarea name="meu_tweet" type="text"></textarea> -->
-                <input name="tweet" id="tweet" type="text" placeholder="O que está acontecendo?"><br>
+                <!-- <input name="tweet" id="tweet" type="text" placeholder="O que está acontecendo?"><br>
                 <div class="enviar">
-                    <input type="submit" name="meu_tweet" value="Tweetar"><br>  
+                    <input type="submit" name="meu_tweet" value="Tweetar"><br>   -->
                     
                 </div>              
             </form>
-            <?php
-            $con = getConexao();
-
-            if(isset($_POST['meu_tweet'])){
-                //$idTweet = $_POST['idTweet'];	
-                /*$id = $_POST['id'];
-                $email = $_POST['email'];
-                $senha = $_POST['senha'];
-                $tweet = $_POST['tweet'];*/
-                $tweet = $_POST['tweet'];
-                //$id = $_POST['id'];
-
-                    $postarTweet = $con ->prepare( "SELECT * FROM usuario WHERE id = :id" AND "INSERT INTO postTweet (tweet) VALUES (:tweet)");
-                    //$postarTweet-> $con ->prepare("SELECT * FROM `usuario` WHERE id = :id");
-                    $postarTweet->bindParam(':tweet', $tweet); 
-                    //$postarTweet->bindValue(':id', $id); 
-                    //$contaPost = $enviartweet->execute();
-                    $postarTweet->execute();
-        
-                    
-            }
-            ?>
+            <form method="POST" action="tweets.php">
+                <input name="tweet" type="text">
+                <input name="botao" type="submit" value="enviar">
+            <form>
+            
             
     </div> 
     <div class="conteiner"> 
@@ -90,3 +77,5 @@ include_once("conexao.php");
     </div>
 </body>
 </html>
+
+<?php else:header('Location: index.php'); endif;?>

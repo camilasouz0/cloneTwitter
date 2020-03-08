@@ -1,9 +1,13 @@
-
 <?php
-if(isset($_REQUEST["sair"])){
-    session_destroy();
-    session_unset(["emailwva"]);
-    session_unset(["senhawva"]);
-    header("Location: index.html");exit;
-}
+
+session_start();
+
+// finaliza a sessão
+unset($_SESSION['sessao_id']);
+
+session_destroy();
+ 
+// retorna para a index.php
+header('Location: index.php');exit;
+
 ?>

@@ -6,6 +6,7 @@ body{
 .coluna_inicial{
     position: absolute; top: 15px; left: 350px; /*posição do formulario*/
 }
+/*.coluna_inicial input:hover{*/
 .coluna_inicial input:hover{
     outline: none; /*remove contorno azul*/
     border-radius: 30px ; /*borta arredondada*/
@@ -16,12 +17,12 @@ body{
     outline: none; /*remove contorno azul*/
     display:block;/*forma uma coluna */ 
     border-radius: 30px ; /*borta arredondada*/
-    width: 200px;  /*largura */
-    height: 60px; /*altura */
-    background: white;/*cor do botão*/
-    font-weight: bold;/*negrito*/
+    width: 200px;  /*largura 
+    //height: 60px; /*altura 
+    background: white;/*cor do botão
+    //font-weight: bold;/*negrito
     font-size: 18px;
-    border: none; 
+    border: none; */
 } 
 .tweetar input{
     outline: none; /*remove contorno azul*/
