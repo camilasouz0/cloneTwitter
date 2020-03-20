@@ -2,28 +2,37 @@ body{
     overflow: auto; 
     font-family:Ubuntu;
 }
-
 .coluna_inicial{
-    position: absolute; top: 15px; left: 350px; /*posição do formulario*/
-}
-/*.coluna_inicial input:hover{*/
-.coluna_inicial input:hover{
-    outline: none; /*remove contorno azul*/
-    border-radius: 30px ; /*borta arredondada*/
-    background-color: rgb(242, 243, 243);
-    width: 200px;  /*largura*/
-}
-.botoes_coluna input{
-    outline: none; /*remove contorno azul*/
-    display:block;/*forma uma coluna */ 
-    border-radius: 30px ; /*borta arredondada*/
-    width: 200px;  /*largura 
-    //height: 60px; /*altura 
-    background: white;/*cor do botão
-    //font-weight: bold;/*negrito
+    position: absolute; top: 15px; left: 340px; /*posição do formulario*/
+    font-weight: bold;/*negrito*/
     font-size: 18px;
-    border: none; */
-} 
+}
+.coluna_inicial a:hover{/*coluna de botões muda cor ao passar mouse*/
+    outline: none; /*remove contorno azul*/
+    border-radius: 30px ; /*borta arredondada*/
+    background-color: rgb(232, 245, 254);
+    opacity:0.65;
+	-moz-opacity: 0.65;
+	filter: alpha(opacity=65);
+    color: rgb(29, 161, 242);/*cor da letra muda ao pessar o mouse*/
+    fill: rgb(29, 161, 242);
+    width: 190px;  /*largura */
+    /*height: 40px; /*altura */
+}
+.coluna_inicial svg{
+    margin-right: 20px;
+    fill: black;/*cor do botão*/
+}
+.coluna_inicial a{
+    color:black;
+    text-decoration:none;
+    /*background-image:url("img/passarinho.png");*/
+    display: block;
+    /*border-radius: 30px ; borta arredondada*/
+    width: 200px;  /*largura*/
+    height: 40px; /*altura */
+    margin: 20px;/*distancia de um botão para o outro*/
+}
 .tweetar input{
     outline: none; /*remove contorno azul*/
     display:block;/*forma uma coluna */ 
@@ -38,16 +47,7 @@ body{
     border-bottom: none; 
     border-top: none; 
 }
-.passarinho_twitter:hover{
-    background-color: rgb(242, 243, 243);
-    border-radius: 30px; /*borta arredondada*/
-    /* width: 50px;  
-    height: 50px; */
-}
-.passarinho_twitter{ 
-    width: 23px;  
-    height: 28px; 
-}
+
 h4{
     position: absolute; left: 30px; top:0px;/*posição do formulario*/    
 
@@ -76,19 +76,19 @@ h4{
     border: none;
     font-size: 18px;
     position: absolute; left: 85px; top: 75px;/*posição do input*/
-    width: 500px;  /*largura */
+   /*/width: 500px;  largura */
     height: 30px; /*altura */
     float:left;
 }
 .enviar input{
     outline: none; /*remove contorno azul*/
-    position: absolute; left: 485px; top:140px;/*posição do botão*/ 
-    display:block;/*forma uma coluna */ 
-    border-radius: 30px; /*borta arredondada*/ 
+    position: absolute; left: 485px; top:140px;/*posição do botão*/
+    display:block;/*forma uma coluna*/
+    border-radius: 30px; /*borta arredondada*/
     background: rgb(29, 161, 242);/*cor do botão*/
     color: white;
-    width: 100px;  /*largura */
-    height: 40px; /*altura */
+    width: 100px;  /*largura*/
+    height: 40px; /*altura*/
     font-weight: bold;/*negrito*/
     font-size: 15px;
     border-left: none; /*cor da borda*/
