@@ -13,7 +13,7 @@
                 <label class="label_1">Celular, e-mail ou nome de usuário</label>
                 <input id="email" name="email" type="email" required>        
         <!-- </form>   
-        <form class="formulario_senha" method="POST" action="index.php"> -->
+        <form class="formulario_senha" method="POST" action=""> -->
             <label class="label_2">Senha</label>    
             <input id="senha" name="senha" type="password" required>  
             <input class="estilo_botao_entrar" name="entrar" type="submit" value="Entrar">     

@@ -1,6 +1,8 @@
 <?php
  
 require 'conexao.php';// a sessao inicia na conexão com o banco
+include_once("conexao.php");
+$con = getConexao();
 
 if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
 
@@ -55,18 +57,69 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
     </div>
     <div class="scroll">
             <form class="postar_tweet" method="POST" action="tweets.php">
-                <h4>Página Inicial</h4>
-                <!-- <textarea name="meu_tweet" type="text"></textarea> -->
-                <input name="tweet" type="text">
+            <h3>Página Inicial<a href="#" type="submit"></a></h3>
+                
+                <img width="50" height="50"src="img/foto_usuario.jpg">
+                <input name="tweet" placeholder="O que está acontecendo?" type="text">
+                <!-- <input name="tweet" type="text"> -->
             <div class="enviar">
-                <input name="meu_tweet" type="submit" value="enviar">   
+                <div class="icon">
+                    <table>
+                        <tr>
+                            <th>
+                                <svg class="" viewbox="0 0 24 24" width="22" height="22">
+                                    <path d="M 19.75 2 H 4.25 C 3.01 2 2 3.01 2 4.25 v 15.5 C 2 20.99 3.01 22 4.25 22 h 15.5 c 1.24 0 2.25 -1.01 2.25 -2.25 V 4.25 C 22 3.01 20.99 2 19.75 2 Z M 4.25 3.5 h 15.5 c 0.413 0 0.75 0.337 0.75 0.75 v 9.676 l -3.858 -3.858 c -0.14 -0.14 -0.33 -0.22 -0.53 -0.22 h -0.003 c -0.2 0 -0.393 0.08 -0.532 0.224 l -4.317 4.384 l -1.813 -1.806 c -0.14 -0.14 -0.33 -0.22 -0.53 -0.22 c -0.193 -0.03 -0.395 0.08 -0.535 0.227 L 3.5 17.642 V 4.25 c 0 -0.413 0.337 -0.75 0.75 -0.75 Z m -0.744 16.28 l 5.418 -5.534 l 6.282 6.254 H 4.25 c -0.402 0 -0.727 -0.322 -0.744 -0.72 Z m 16.244 0.72 h -2.42 l -5.007 -4.987 l 3.792 -3.85 l 4.385 4.384 v 3.703 c 0 0.413 -0.337 0.75 -0.75 0.75 Z"></path>
+                                    <circle cx="8.868" cy="8.309" r="1.542"></circle>
+                                </svg>
+                            </th>
+                            <th>
+                                <svg class="" viewbox="0 0 24 24" width="22" height="22">
+                                    <path d="M 19 10.5 V 8.8 h -4.4 v 6.4 h 1.7 v -2 h 2 v -1.7 h -2 v -1 H 19 Z m -7.3 -1.7 h 1.7 v 6.4 h -1.7 V 8.8 Z m -3.6 1.6 c 0.4 0 0.9 0.2 1.2 0.5 l 1.2 -1 C 9.9 9.2 9 8.8 8.1 8.8 c -1.8 0 -3.2 1.4 -3.2 3.2 s 1.4 3.2 3.2 3.2 c 1 0 1.8 -0.4 2.4 -1.1 v -2.5 H 7.7 v 1.2 h 1.2 v 0.6 c -0.2 0.1 -0.5 0.2 -0.8 0.2 c -0.9 0 -1.6 -0.7 -1.6 -1.6 c 0 -0.8 0.7 -1.6 1.6 -1.6 Z"></path>
+                                    <path d="M 20.5 2.02 h -17 c -1.24 0 -2.25 1.007 -2.25 2.247 v 15.507 c 0 1.238 1.01 2.246 2.25 2.246 h 17 c 1.24 0 2.25 -1.008 2.25 -2.246 V 4.267 c 0 -1.24 -1.01 -2.247 -2.25 -2.247 Z m 0.75 17.754 c 0 0.41 -0.336 0.746 -0.75 0.746 h -17 c -0.414 0 -0.75 -0.336 -0.75 -0.746 V 4.267 c 0 -0.412 0.336 -0.747 0.75 -0.747 h 17 c 0.414 0 0.75 0.335 0.75 0.747 v 15.507 Z"></path>
+                                </svg>
+                            </th>
+                            <th>
+                                <svg class="" viewbox="0 0 24 24" width="22" height="22">
+                                    <path d="M 20.222 9.16 h -1.334 c 0.015 -0.09 0.028 -0.182 0.028 -0.277 V 6.57 c 0 -0.98 -0.797 -1.777 -1.778 -1.777 H 3.5 V 3.358 c 0 -0.414 -0.336 -0.75 -0.75 -0.75 s -0.75 0.336 -0.75 0.75 V 20.83 c 0 0.415 0.336 0.75 0.75 0.75 s 0.75 -0.335 0.75 -0.75 v -1.434 h 10.556 c 0.98 0 1.778 -0.797 1.778 -1.777 v -2.313 c 0 -0.095 -0.014 -0.187 -0.028 -0.278 h 4.417 c 0.98 0 1.778 -0.798 1.778 -1.778 v -2.31 c 0 -0.983 -0.797 -1.78 -1.778 -1.78 Z M 17.14 6.293 c 0.152 0 0.277 0.124 0.277 0.277 v 2.31 c 0 0.154 -0.125 0.28 -0.278 0.28 H 3.5 V 6.29 h 13.64 Z m -2.807 9.014 v 2.312 c 0 0.153 -0.125 0.277 -0.278 0.277 H 3.5 v -2.868 h 10.556 c 0.153 0 0.277 0.126 0.277 0.28 Z M 20.5 13.25 c 0 0.153 -0.125 0.277 -0.278 0.277 H 3.5 V 10.66 h 16.722 c 0.153 0 0.278 0.124 0.278 0.277 v 2.313 Z"></path>
+                                </svg>
+                            </th>
+                            <th>
+                                <svg class="" viewbox="0 0 24 24" width="22" height="22">
+                                    <path d="M 12 22.75 C 6.072 22.75 1.25 17.928 1.25 12 S 6.072 1.25 12 1.25 S 22.75 6.072 22.75 12 S 17.928 22.75 12 22.75 Z m 0 -20 C 6.9 2.75 2.75 6.9 2.75 12 S 6.9 21.25 12 21.25 s 9.25 -4.15 9.25 -9.25 S 17.1 2.75 12 2.75 Z"></path>
+                                    <path d="M 12 17.115 c -1.892 0 -3.633 -0.95 -4.656 -2.544 c -0.224 -0.348 -0.123 -0.81 0.226 -1.035 c 0.348 -0.226 0.812 -0.124 1.036 0.226 c 0.747 1.162 2.016 1.855 3.395 1.855 s 2.648 -0.693 3.396 -1.854 c 0.224 -0.35 0.688 -0.45 1.036 -0.225 c 0.35 0.224 0.45 0.688 0.226 1.036 c -1.025 1.594 -2.766 2.545 -4.658 2.545 Z""></path>
+                                    <circle cx="14.738" cy="9.458" r="1.478"></circle>
+                                    <circle cx="9.262" cy="9.458" r="1.478"></circle>
+                                </svg>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                
+                <input name="meu_tweet" type="submit" value="Tweetar">   
             </div>           
             </form>
-            <!-- <form method="POST" action="tweets.php">
-                <input name="tweet" type="text">
-                <input name="botao" type="submit" value="enviar">
-            <form> -->
+            <?php 
+                
+                    //$id = $_SESSION['sessao_id']; 
+                    $pegarTweets = $con -> prepare("SELECT tweet FROM post ORDER BY idTweet ASC");
+                    $pegarTweets->execute();
+                    
+                        //echo $pegarTweets;
+                        while($mostrarTweets = $pegarTweets->fetch(PDO::FETCH_ASSOC)){
+
+                                    echo"<div class=mostrarTweet>",
+                                            $mostrarTweets['tweet'],
+                                        "</div>";
+                                    //echo ."<br>";
+                            
+                            //var_dump($resultado);
+                        
+                    }//else{
+                        //echo 'Não possue Tweets';
+                    //}
+                
             
+            ?>          
             
     </div> 
     <div class="conteiner"> 

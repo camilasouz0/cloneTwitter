@@ -5,7 +5,7 @@ include_once("login.php");//para pegar o id usuario
 $con = getConexao();
 
         
-if(isset($_POST['meu_tweet']) && $_POST['meu_tweet'] == "enviar"){
+if(isset($_POST['meu_tweet']) && $_POST['meu_tweet'] == "Tweetar"){
 
         $id = $_SESSION['sessao_id'];   
         $tweet = $_POST['tweet'];
@@ -16,7 +16,6 @@ if(isset($_POST['meu_tweet']) && $_POST['meu_tweet'] == "enviar"){
         $inserirTweet -> bindParam(':id', $id);
         //$inserirTweet -> bindValue(':idPost', $idPost);
         $inserirTweet -> bindParam(':tweet', $tweet);
-
         if($inserirTweet -> execute()){
                 header("Refresh:1; url = menu_usuario.php"); //recarrega a página ao enviar tweet
         }

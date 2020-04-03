@@ -3,7 +3,7 @@ body{
     font-family:Ubuntu;
 }
 .coluna_inicial{
-    position: absolute; top: 15px; left: 340px; /*posição do formulario*/
+    position: absolute; top: -10px; left: 340px; /*posição do formulario*/
     font-weight: bold;/*negrito*/
     font-size: 18px;
 }
@@ -45,16 +45,41 @@ body{
     border-left: none; /*cor da borda*/
     border-right: none;
     border-bottom: none; 
-    border-top: none; 
+    border-top: none;
 }
 
-h4{
-    position: absolute; left: 30px; top:0px;/*posição do formulario*/    
-
+.scroll h3{  
+    font-size: 18px;
+    position: absolute; left: 15px; top: 0px;/*posição do scroll*/
+    cursor: pointer;/*tipo mouse*/
+}
+.scroll a{
+    position: absolute; left: -15px; top: 40px;/*posição do scroll*/
+    border-bottom: 1px solid rgb(216, 226, 226); 
+    width: 600px;/*largura*/
+}
+.icon{
+    position: absolute; left: 50px; top:145px;
+}
+.icon th{
+    width: 40px;  /*largura*/
+    height: 40px; /*altura */
+}
+.icon th:hover{
+    border-radius: 30px; /*borta arredondada*/
+    opacity:0.65;
+	-moz-opacity: 0.65;
+    filter: alpha(opacity=65);
+    background-color:rgb(232, 245, 254);/*cor da borda ao passar o mouse*/
+    fill:rgb(29, 161, 242);/*cor do svg*/
+    cursor: pointer;/*tipo mouse*/
+}
+.icon svg{
+    fill:rgb(29, 161, 242);
+    margin-left: 20px;/*espaço entre os icon*/
 }
 .scroll{
     font-weight: bold;/*negrito*/
-    font-size: 18px;
     position: absolute; left: 590px; top: 0px;/*posição do scroll*/
     width: 600px;  
     height: 1000px; /*altura */ 
@@ -66,18 +91,23 @@ h4{
 }
 .postar_tweet{
     display:block;/*forma uma coluna */ 
-    width: 600px;  
+    width: 600px;/*largura*/
     height: 200px;/*altura*/
     border-bottom: 9px solid rgb(216, 226, 226); 
 }
-.postar_tweet input{
+.postar_tweet img{
+    position: absolute; left: 15px; top: 70px;/*posição do img*/   
+    cursor: pointer;/*tipo mouse*/
+        border-radius: 50%;
+}
+.postar_tweet input{/*area de escrever o tweet*/
     display:block;/*forma uma coluna */ 
     outline: none; /*remove contorno azul*/
-    border: none;
+    border: none;/*borda ao redor do input*/
     font-size: 18px;
-    position: absolute; left: 85px; top: 75px;/*posição do input*/
-   /*/width: 500px;  largura */
-    height: 30px; /*altura */
+    position: absolute; left: 75px; top: 70px;/*posição do input*/
+    width: 500px;  /*largura */
+    height: 45px; /*altura */
     float:left;
 }
 .enviar input{
@@ -89,12 +119,14 @@ h4{
     color: white;
     width: 100px;  /*largura*/
     height: 40px; /*altura*/
-    font-weight: bold;/*negrito*/
     font-size: 15px;
     border-left: none; /*cor da borda*/
     border-right: none;
     border-bottom: none; 
     border-top: none; 
+}
+::placeholder{
+    color:#9197a3;
 }
 .buscar input{
     outline: none; /*remove contorno azul*/
@@ -118,6 +150,11 @@ h4{
     width: 340px;  /*largura */
     height: 720px; /*altura */
     border: none;
+}
+.mostrarTweet{
+    border-bottom: 1px solid rgb(216, 226, 226);
+    width: 600px;/*largura*/
+    /*text-align: center;*/
 }
 .alerta {padding: 25px;border: 1px solid gray;border-radius: 3px;margin: 10px;font-size: 18px;}.error {border-color: #e8273b;color: #FFF;background-color: #ed5565;}.sucesso {border-color: #87c940;color: #FFF;background-color: #a0d468;}.atencao {border-color: #f4a911;color: #FFF;background-color: #f6bb42;}.info {border-color: #2f80e7;color: #FFF;background-color: #5d9cec;}
 
