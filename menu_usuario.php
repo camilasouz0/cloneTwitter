@@ -13,12 +13,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
     <title>Página Inicial/Twitter</title>
     <link rel="stylesheet" href="css/style_menu.css">
 </head>
-<body>
-        <!-- <div class="botao1">
-        <object type="image/svg+xml" src="img/passarinho.png"></object>
-
-        </div> -->
-        
+<body>       
     <div class="coluna_inicial">
         <nav class="botoes_coluna">
             <a><img width="30" height="30" src="img/passarinho.png"></a>
@@ -50,18 +45,16 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
                 </path></svg>Sair</a>
 
             <div class="tweetar">
-            <input type="submit" value="Tweetar">
+                <input type="submit" value="Tweetar">
             </div> 
         </nav> 
                
     </div>
     <div class="scroll">
-            <form class="postar_tweet" method="POST" action="tweets.php">
-            <h3>Página Inicial<a href="#" type="submit"></a></h3>
-                
-                <img width="50" height="50"src="img/foto_usuario.jpg">
-                <input name="tweet" placeholder="O que está acontecendo?" type="text">
-                <!-- <input name="tweet" type="text"> -->
+        <form class="postar_tweet" method="POST" action="tweets.php">
+        <h3>Página Inicial<a href="#" type="submit"></a></h3>             
+        <img width="50" height="50"src="img/foto_usuario.jpg">
+        <input name="tweet" placeholder="O que está acontecendo?" type="text">
             <div class="enviar">
                 <div class="icon">
                     <table>
@@ -93,34 +86,40 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
                             </th>
                         </tr>
                     </table>
-                </div>
-                
+                </div>               
                 <input name="meu_tweet" type="submit" value="Tweetar">   
             </div>           
             </form>
-            <?php 
-                
-                    //$id = $_SESSION['sessao_id']; 
-                    $pegarTweets = $con -> prepare("SELECT tweet FROM post ORDER BY idTweet ASC");
-                    $pegarTweets->execute();
-                    
-                        //echo $pegarTweets;
-                        while($mostrarTweets = $pegarTweets->fetch(PDO::FETCH_ASSOC)){
+<?php               
+    //$id = $_SESSION['sessao_id'];
 
-                                    echo"<div class=mostrarTweet>",
-                                            $mostrarTweets['tweet'],
-                                        "</div>";
-                                    //echo ."<br>";
-                            
-                            //var_dump($resultado);
-                        
-                    }//else{
-                        //echo 'Não possue Tweets';
-                    //}
+    //$pegarTweets = $con -> prepare("SELECT tweet FROM post ORDER BY idTweet ASC");
+    //seleciona da tabela post a coluna com tweet e seleciona tambem a tabela usuario com nomes dos usuarios
+    $pegarTweets = $con -> prepare("SELECT post.tweet, usuario.nome FROM post,usuario WHERE post.id = usuario.id");
+    $pegarTweets->execute();
+                    
+    //echo $pegarTweets;
+    while($mostrarTweets = $pegarTweets->fetch(PDO::FETCH_ASSOC)){
+        echo "<table class=colunaTwitter>
+                <tr>
+                    <th class=fotoUsuario>
+                        <img src=img/foto_usuario.jpg>
+                    </th>
+
+                    <th class=corLetra>
+                        <h4>",$mostrarTweets['nome'],"<label> @",$_SESSION['sessao_id'],$mostrarTweets['nome']," -</label></h4>
+                    </th>
+                </tr>
+                <tr>
+                    <td class=mostrarTweet><h4>",$mostrarTweets['tweet'],"</h4></td>
+                </tr>
+            </table><br>"; 
+        
+
+    }
                 
             
-            ?>          
-            
+ ?>                    
     </div> 
     <div class="conteiner"> 
         <div class="buscar">    
