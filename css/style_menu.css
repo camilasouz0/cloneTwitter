@@ -1,6 +1,6 @@
 body{
     overflow: auto; 
-    font-family:Ubuntu;
+    /* font-family:Ubuntu; */
 }
 .coluna_inicial{
     position: absolute; top: -10px; left: 340px; /*posição do formulario*/
@@ -151,15 +151,26 @@ body{
     height: 720px; /*altura */
     border: none;
 }
-.mostrarTweet {
+.colunaTwitter{
     border-bottom: 1px solid rgb(216, 226, 226);
+    width: 600px;/*largura*/
+}
+.colunaTwitter table{
+    margin: 8px;
+}
+.mostrarTweet {
     width: 600px;/*largura*/
     height: 100px; /*altura */
     /*text-align: center;*/
 }
 .mostrarTweet h4{
+    color: rgb(20, 23, 26);
+    font-family: Roboto, sans-serif,;
+    font-stretch: extra-condensed;
     position: absolute; left: 75px; 
-    margin: 6px;
+    margin: 6px;/*para centralizar o tweet do usuario com nome do usuario*/
+    margin-top: -20px;
+    overflow-wrap: break-word;
 }
 .fotoUsuario img{
     position: absolute; left: 15px;
@@ -172,7 +183,6 @@ body{
     position: absolute; left: 75px;
     margin: 6px;
 }
-
 .corLetra label{
     /* color: rgb(101, 119, 134);     */
     color:rgb(101, 119, 134);
@@ -182,7 +192,6 @@ body{
 }
 
 
-
-.alerta {padding: 25px;border: 1px solid gray;border-radius: 3px;margin: 10px;font-size: 18px;}.error {border-color: #e8273b;color: #FFF;background-color: #ed5565;}.sucesso {border-color: #87c940;color: #FFF;background-color: #a0d468;}.atencao {border-color: #f4a911;color: #FFF;background-color: #f6bb42;}.info {border-color: #2f80e7;color: #FFF;background-color: #5d9cec;}
+/* .alerta {padding: 25px;border: 1px solid gray;border-radius: 3px;margin: 10px;font-size: 18px;}.error {border-color: #e8273b;color: #FFF;background-color: #ed5565;}.sucesso {border-color: #87c940;color: #FFF;background-color: #a0d468;}.atencao {border-color: #f4a911;color: #FFF;background-color: #f6bb42;}.info {border-color: #2f80e7;color: #FFF;background-color: #5d9cec;} */
 
 

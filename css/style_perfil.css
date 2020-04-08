@@ -1,0 +1,164 @@
+#menu{
+    position: fixed;
+    right: 0;
+    top: 50%;
+    width: 8em;
+    margin-top: -2.5em;
+}
+.botoesFixado{
+    margin: -10px;
+    position: fixed;
+    /* background-color: grey; */
+    width: 600px;  /*largura*/
+    height: 950px; /*altura*/
+}
+.botoesFixado nav{/*posição conteiner dos botães*/
+    /* background-color: darkkhaki; */
+    width: 270px;  /*largura*/
+    height: 950px; /*altura*/
+    font-size: 15px;
+    position: absolute; left: 327px;
+    position: fixed;
+    border-right: 1px solid rgb(216, 226, 226);
+}
+.botoesColuna a{
+    margin: 20px;
+    /* background-color: rosybrown; */
+    font-size: 19px;
+    font-weight: bold;
+    color: rgba(29,161,242,1.00);
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.botoesColuna svg{
+    margin: 20px;
+    background-color: lawngreen;
+    fill: currentcolor;
+    cursor: pointer;
+}
+.tweetar input{/*botao tweetar da coluna de botoes*/
+    outline: none; /*remove contorno azul*/
+    display:block;/*forma uma coluna */ 
+    border-radius: 30px ; /*borta arredondada*/
+    width: 200px;  /*largura */
+    height: 50px; /*altura */
+    background: rgb(29, 161, 242);/*cor do botão*/
+    font-weight: bold;/*negrito*/
+    font-size: 15px;
+    border-left: none; /*cor da borda*/
+    border-right: none;
+    border-bottom: none; 
+    border-top: none;
+}
+.scroll{/*posição de todo o scroll de tweets*/
+    position: absolute; left: 598px; top: 54px;/*posição do scroll*/
+    width: 600px;  
+    height: 1000px; /*altura */ 
+}
+.scrollUsuario{
+    position: fixed;
+    width: 600px;
+    height: 53px;
+    background-color: rgb(22, 199, 22);
+    position: fixed;
+    z-index: 999;
+    left: 598px; top: 0px;
+    border-bottom: 1px solid rgb(216, 226, 226); 
+}
+.scrollUsuario h3{  
+    position: fixed;
+    font-size: 18px;
+    cursor: pointer;/*tipo mouse*/
+    background-color: darkmagenta;
+}
+
+.colunaTwitter{
+    border-bottom: 1px solid rgb(216, 226, 226);
+    width: 600px;/*largura*/
+}
+.colunaTwitter table{
+    margin: 8px;
+}
+.mostrarTweet {
+    width: 600px;/*largura*/
+    height: 100px; /*altura */
+    /*text-align: center;*/
+}
+.mostrarTweet h4{
+    color: rgb(20, 23, 26);
+    font-family: Roboto, sans-serif,;
+    font-stretch: extra-condensed;
+    position: absolute; left: 75px; 
+    margin: 6px;/*para centralizar o tweet do usuario com nome do usuario*/
+    margin-top: -20px;
+    overflow-wrap: break-word;
+}
+.fotoUsuario img{
+    position: absolute; left: 15px;
+    cursor: pointer;/*tipo mouse*/
+    width:50px;/*largura*/
+    height:50px;/*altuea*/
+    border-radius:50px;
+}
+.corLetra h4{
+    position: absolute; left: 75px;
+    margin: 6px;
+}
+.corLetra label{
+    /* color: rgb(101, 119, 134);     */
+    color:rgb(101, 119, 134);
+    font-size: 15px;
+    font-family: Ubuntu;
+    font-weight: lighter;
+}
+
+
+
+.conteinerFixado{
+    left: 1208px;
+    position: fixed;
+    margin: -10px;
+    background-color: rosybrown;
+    width: 706px;  /*largura*/
+    height: 950px; /*altura*/
+    /* border-right: 10px solid rgb(216, 226, 226); */
+    border-left: 1px solid rgb(216, 226, 226); 
+}
+.conteinerAssuntos{
+    position: fixed;
+    outline: none; /*remove contorno azul*/
+    position: absolute; left:200px;
+    background-color: salmon;
+    width: 350px;  /*largura*/
+    height: 950px; /*altura*/
+}
+.conteinerAssuntos div{
+    position: fixed;
+    border-radius: 30px; /*borta arredondada*/
+    font-size: 17px;
+    font-weight: bold;/*negrito*/
+    background-color: rgb(242, 243, 243);
+    width: 340px;  /*largura */
+    height: 720px; /*altura */
+    border: none;
+}
+.buscar input{
+    outline: none; /*remove contorno azul*/
+    position: absolute; left: 1000px; top:10px;/*posição do busca*/ 
+    border-radius: 30px; /*borta arredondada*/ 
+    font-size: 17px;
+    background-color: rgb(242, 243, 243); 
+    border: none; 
+    width: 340px;/*largura*/ 
+    height: 40px;/*altura*/
+    text-align: center;
+
+}
+
+
+body{
+    overflow: auto; 
+ background-color: red;
+}
