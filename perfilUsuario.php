@@ -50,13 +50,29 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
             </div> 
         </nav>               
     </div>
-    <div class="scrollUsuario">
+    <div class="scrollUsuario">      
         <?php
             $nomeUsuario = $con -> prepare("SELECT * FROM usuario");
             $nomeUsuario->execute();
             $mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC);
-            echo "<h3>",$mostrarNome['nome'],"<a href=# type=submit></a></h3>";
         ?>
+        <table>
+            <tr>
+                <th class=botaoVoltar>
+                    <a class=setaVoltar href=javascript:history.back();>
+                        <svg viewbox=0 0 24 24 width="30" height="30">
+                            <path d="M 20 11 H 7.414 l 4.293 -4.293 c 0.39 -0.39 0.39 -1.023 0 -1.414 s -1.023 -0.39 -1.414 0 l -6 6 c -0.39 0.39 -0.39 1.023 0 1.414 l 6 6 c 0.195 0.195 0.45 0.293 0.707 0.293 s 0.512 -0.098 0.707 -0.293 c 0.39 -0.39 0.39 -1.023 0 -1.414 L 7.414 13 H 20 c 0.553 0 1 -0.447 1 -1 s -0.447 -1 -1 -1 Z">
+                            </path>
+                        </svg>
+                    </a>
+                </th>
+            <?php
+            echo"<th class=nomeMenu>
+                    <h3>",$mostrarNome['nome'],"<a href=# type=submit></a></h3>
+                </th>";
+            ?>
+            </tr>
+        </table>
     </div>    
     <div class="scroll">
     <?php

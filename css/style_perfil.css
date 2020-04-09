@@ -9,13 +9,13 @@
     margin: -10px;
     position: fixed;
     /* background-color: grey; */
-    width: 600px;  /*largura*/
-    height: 950px; /*altura*/
+    width: 600px;
+    height: 950px;
 }
 .botoesFixado nav{/*posição conteiner dos botães*/
     /* background-color: darkkhaki; */
-    width: 270px;  /*largura*/
-    height: 950px; /*altura*/
+    width: 270px;
+    height: 950px;
     font-size: 15px;
     position: absolute; left: 327px;
     position: fixed;
@@ -34,7 +34,7 @@
 }
 .botoesColuna svg{
     margin: 20px;
-    background-color: lawngreen;
+    /* background-color: lawngreen; */
     fill: currentcolor;
     cursor: pointer;
 }
@@ -57,23 +57,42 @@
     width: 600px;  
     height: 1000px; /*altura */ 
 }
-.scrollUsuario{
-    position: fixed;
+.scrollUsuario{/*conteiner com nome usuario fixado no topo do scrol*/
+    position: fixed;left: 598px; top: 0px;
     width: 600px;
     height: 53px;
-    background-color: rgb(22, 199, 22);
-    position: fixed;
+    background-color: rgb(255, 255, 255);
     z-index: 999;
-    left: 598px; top: 0px;
     border-bottom: 1px solid rgb(216, 226, 226); 
 }
-.scrollUsuario h3{  
-    position: fixed;
-    font-size: 18px;
-    cursor: pointer;/*tipo mouse*/
-    background-color: darkmagenta;
+.scrollUsuario table{
+    padding-left: 9px;
+    padding-top: 6px;
+    /* background-color:darkcyan ; */ 
 }
-
+.botaoVoltar:hover{/*borda aparece passar mouse*/
+    background-color: rgb(200, 250, 219);
+    opacity:0.70;
+}
+.botaoVoltar{/*borda ao redor da seta de voltar*/
+    width: 35px;  
+    height: 35px;
+    border-radius: 45px;
+}
+.setaVoltar svg{/*cor e posição da seta voltar*/
+    position: absolute; left:17px; top:15px;
+    fill:rgb(29, 161, 242);
+}
+.nomeMenu{  
+    position: fixed;
+    cursor: pointer;/*tipo mouse*/
+}
+.nomeMenu h3{/*posição e formato da letra do nome so usuario*/
+    position: relative; left: 17px; top:-20px;
+    font-size: 19px;
+    color: rgb(20, 23, 26);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
 .colunaTwitter{
     border-bottom: 1px solid rgb(216, 226, 226);
     width: 600px;/*largura*/
@@ -160,5 +179,5 @@
 
 body{
     overflow: auto; 
- background-color: red;
+ background-color: white;
 }
