@@ -52,7 +52,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
     </div>
     <div class="scrollUsuario">      
         <?php
-            $nomeUsuario = $con -> prepare("SELECT * FROM usuario");
+            $nomeUsuario = $con -> prepare("SELECT post.tweet, usuario.nome FROM post,usuario WHERE post.id = usuario.id");
             $nomeUsuario->execute();
             $mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC);
         ?>
@@ -75,6 +75,24 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
         </table>
     </div>    
     <div class="scroll">
+        <div class="headerUsuario">
+            <img src="img/headerDoUsuario.jpeg">
+            <div class="fotoPerfil">
+                <img class="fotoDoPerfil" src="img/foto_usuario.jpg">
+                <?php
+                    echo"<th class=nomeMenu>
+                            <h3>",$mostrarNome['nome'],"<a href=# type=submit></a></h3>
+                        </th>
+                        <th class=corLetra>
+                            <div><label> @",$_SESSION['sessao_id'],$mostrarNome['nome'],"</label></div>
+                        </th>";
+                ?>
+            </div>
+            
+            <div class="botaoDeEditar">
+                <a class="botaoEditarPerfil" name="botaoEditarPerfil" type="submit">Editar pefil</a>   
+            </div>
+        </div>
     <?php
         $pegarTweets = $con -> prepare("SELECT post.tweet, usuario.nome FROM post,usuario WHERE post.id = usuario.id");
         $pegarTweets->execute();
@@ -86,7 +104,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
                         </th>
     
                         <th class=corLetra>
-                            <h4>",$mostrarTweets['nome'],"<label> @",$_SESSION['sessao_id'],$mostrarTweets['nome']," -</label></h4>
+                            <h4>",$logado=$mostrarTweets['nome'],"<label> @",$_SESSION['sessao_id'],$mostrarTweets['nome']," -</label></h4>
                         </th>
                     </tr>
                     <tr>
@@ -97,11 +115,39 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
     ?>
     </div> 
     <nav class="conteinerFixado"> 
-        <div class="conteinerAssuntos">    
-            <input type="text" id="txtBusca" placeholder="Buscar no Twitter"/>          
-            <select class="dentro_conteiner">
-                <h1>Assuntos do momento</h1>
-            </select> 
+        <div class="midiaSugestaoSegui">    
+            <input type="text" id="txtBusca" placeholder="Buscar no Twitter"/>
+            <div class="talvezVoceCurta">
+                <aside class="sugestaoSeguir">
+                    <h1>Talvez você curta</h1>
+                    <div class="usuarioParaSeguir">
+                        <?php 
+                        $nomeUsuario = $con -> prepare("SELECT * FROM usuario WHERE id <> 1");
+                        $nomeUsuario->execute();
+                        
+                       
+                        while($mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC)){  
+                            
+                                for($i=0; $i<=1; $i=$i++){
+                                    echo $mostrarNome['nome']."<br>";
+                                }
+                                echo "<table>
+                                    <tr>
+                                        <th class=nomeSequir>
+                                            <h4>",$mostrarNome['nome'],"</h4>
+                                        </th>
+                                        <th class=clasSeguir>
+                                            <input name=botaoSeguir type=submit value=Seguir>
+                                        </th>
+                                    </tr>
+                                </table>";
+                            
+                        }
+                        ?>                          
+                                                     
+                    </div>    
+                </aside> 
+            </div>             
         </div>
     </nav>
 </body>

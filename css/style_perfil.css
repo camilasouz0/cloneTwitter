@@ -1,10 +1,3 @@
-#menu{
-    position: fixed;
-    right: 0;
-    top: 50%;
-    width: 8em;
-    margin-top: -2.5em;
-}
 .botoesFixado{
     margin: -10px;
     position: fixed;
@@ -56,6 +49,76 @@
     position: absolute; left: 598px; top: 54px;/*posição do scroll*/
     width: 600px;  
     height: 1000px; /*altura */ 
+}
+.headerUsuario{/*conteiner da header so perfil usuario*/
+    width: 600px;
+    height: 430px;
+    border-bottom: 1px solid rgb(216, 226, 226); 
+}
+.fotoPerfil{/*css da foto do perfil do usuario*/
+    width:142px;
+    height:142px;
+    margin-top: -18%;
+    background-color: rgba(255,255,255,1.00);
+    border-bottom-color: rgb(255, 255, 255);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    position: absolute;
+    bottom: 735px;
+    left: 10px;
+}
+.fotoPerfil h3{
+    position: relative;  top: -16px;
+    font-size: 19px;
+    color: rgb(20, 23, 26);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+.fotoPerfil div{
+    position: relative; top:-30px;
+}
+.fotoPerfil label{
+    font-size: 19px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    color:rgb(101, 119, 134);
+    font-size: 15px;
+}
+.fotoPerfil img{
+    width: 100%;
+    height: 100%;
+    border-radius: 70px;
+}
+.botaoDeEditar{
+    position: relative; left: 463px; top: 5px;
+    width: 118px;
+    height: 49px;
+    background-color: darkcyan;
+}
+.botaoDeEditar{
+    color: rgb(29, 161, 242);
+    background: white;
+    border-radius: 30px;
+    width: 118px;
+    height: 39px;
+    border-left: 1px solid rgb(29, 161, 242);
+    border-right: 1px solid rgb(29, 161, 242);
+    border-bottom: 1px solid rgb(29, 161, 242);
+    border-top: 1px solid rgb(29, 161, 242);
+    font-weight: bold;
+}
+.botaoDeEditar a{
+    position: relative; left: 20px; top: 10px;
+    font-size: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    max-width: 100%;
 }
 .scrollUsuario{/*conteiner com nome usuario fixado no topo do scrol*/
     position: fixed;left: 598px; top: 0px;
@@ -139,29 +202,58 @@
     left: 1208px;
     position: fixed;
     margin: -10px;
-    background-color: rosybrown;
-    width: 706px;  /*largura*/
-    height: 950px; /*altura*/
-    /* border-right: 10px solid rgb(216, 226, 226); */
+    /* background-color: rosybrown; */
+    width: 706px;
+    height: 950px;
     border-left: 1px solid rgb(216, 226, 226); 
 }
-.conteinerAssuntos{
-    position: fixed;
+.midiaSugestaoSegui{
     outline: none; /*remove contorno azul*/
-    position: absolute; left:200px;
-    background-color: salmon;
-    width: 350px;  /*largura*/
-    height: 950px; /*altura*/
+    position: absolute; left:25px;
+    /* background-color: salmon; */
+    width: 350px;
+    height: 950px;
 }
-.conteinerAssuntos div{
-    position: fixed;
-    border-radius: 30px; /*borta arredondada*/
-    font-size: 17px;
-    font-weight: bold;/*negrito*/
-    background-color: rgb(242, 243, 243);
-    width: 340px;  /*largura */
-    height: 720px; /*altura */
-    border: none;
+.talvezVoceCurta{
+    position: absolute; top:283px;
+    /* background-color: darkgreen; */
+    width: 350px;
+    height: 306px;  
+}
+.talvezVoceCurta aside{
+    width: 348px;
+    height: 304px; 
+    background-color: rgb(245, 248, 250);
+    position: absolute; top:0px;
+    border-radius: 20px;
+}
+.sugestaoSeguir h1{
+    padding-left: 25px;
+    font-size: 19px;
+    color: rgb(20, 23, 26);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    border-bottom: 1px solid rgb(216, 226, 226);
+    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.usuarioParaSeguir {
+    /* background-color: slateblue; */
+    width: 348px;
+    height: 210px;
+    position: absolute; top:53px;
+    border-bottom: 1px solid rgb(216, 226, 226); 
+}
+.listarNomes{
+    padding-bottom: 2px;
+    width: 348px;
+    
+}
+.usuarioParaSeguir h4{
+    font-size: 15px;
+    color: rgb(20, 23, 26);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 .buscar input{
     outline: none; /*remove contorno azul*/
