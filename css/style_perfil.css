@@ -239,22 +239,25 @@
     padding-right: 15px;
 }
 .usuarioParaSeguir {
-    /* background-color: slateblue; */
+    background-color: cadetblue;
     width: 348px;
     height: 210px;
     position: absolute; top:53px;
-    border-bottom: 1px solid rgb(216, 226, 226); 
+    /* border-bottom: 1px solid rgb(216, 226, 226);  */
 }
-.listarNomes{
-    padding-bottom: 2px;
-    width: 348px;
-    
-}
-.usuarioParaSeguir h4{
-    font-size: 15px;
-    color: rgb(20, 23, 26);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .buscar input{
     outline: none; /*remove contorno azul*/
     position: absolute; left: 1000px; top:10px;/*posição do busca*/ 
@@ -267,8 +270,6 @@
     text-align: center;
 
 }
-
-
 body{
     overflow: auto; 
  background-color: white;

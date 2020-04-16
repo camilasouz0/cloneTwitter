@@ -1,10 +1,11 @@
 <?php
  
 require 'conexao.php';// a sessao inicia na conexão com o banco
-include_once("conexao.php");
 $con = getConexao();
+require 'login.php';
+            
 
-if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
+if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SESSION['usuarioLogado'])) ):?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,7 +25,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
             <a href="#"><svg class="" viewbox="0 0 24 24" width="30" height="30">
                 <path d="M 20.585 9.468 c 0.66 0 1.2 -0.538 1.2 -1.2 c 0 -0.662 -0.54 -1.2 -1.2 -1.2 h -3.22 l 0.31 -3.547 c 0.027 -0.318 -0.07 -0.63 -0.277 -0.875 c -0.206 -0.245 -0.495 -0.396 -0.822 -0.425 c -0.65 -0.035 -1.235 0.432 -1.293 1.093 l -0.326 3.754 H 9.9 l 0.308 -3.545 c 0.06 -0.658 -0.43 -1.242 -1.097 -1.302 c -0.665 -0.05 -1.235 0.43 -1.293 1.092 l -0.325 3.754 h -3.33 c -0.663 0 -1.2 0.538 -1.2 1.2 c 0 0.662 0.538 1.2 1.2 1.2 h 3.122 l -0.44 5.064 H 3.416 c -0.662 0 -1.2 0.54 -1.2 1.2 s 0.538 1.202 1.2 1.202 h 3.22 l -0.31 3.548 c -0.057 0.657 0.432 1.24 1.09 1.3 l 0.106 0.005 c 0.626 0 1.14 -0.472 1.195 -1.098 l 0.327 -3.753 H 14.1 l -0.308 3.544 c -0.06 0.658 0.43 1.242 1.09 1.302 l 0.106 0.005 c 0.617 0 1.142 -0.482 1.195 -1.098 l 0.325 -3.753 h 3.33 c 0.66 0 1.2 -0.54 1.2 -1.2 s -0.54 -1.202 -1.2 -1.202 h -3.122 l 0.44 -5.064 h 3.43 Z m -5.838 0 l -0.44 5.063 H 9.253 l 0.44 -5.062 h 5.055 Z">
                 </path></svg>Explorar</a>
-            <a href="#"><svg class="" viewbox="0 0 24 24" width="30" height="30">
+            <a href="consultaBanco.php"><svg class="" viewbox="0 0 24 24" width="30" height="30">
                 <path d="M 21.697 16.468 c -0.02 -0.016 -2.14 -1.64 -2.103 -6.03 c 0.02 -2.532 -0.812 -4.782 -2.347 -6.335 C 15.872 2.71 14.01 1.94 12.005 1.93 h -0.013 c -2.004 0.01 -3.866 0.78 -5.242 2.174 c -1.534 1.553 -2.368 3.802 -2.346 6.334 c 0.037 4.33 -2.02 5.967 -2.102 6.03 c -0.26 0.193 -0.366 0.53 -0.265 0.838 c 0.102 0.308 0.39 0.515 0.712 0.515 h 4.92 c 0.102 2.31 1.997 4.16 4.33 4.16 s 4.226 -1.85 4.327 -4.16 h 4.922 c 0.322 0 0.61 -0.206 0.71 -0.514 c 0.103 -0.307 -0.003 -0.645 -0.263 -0.838 Z M 12 20.478 c -1.505 0 -2.73 -1.177 -2.828 -2.658 h 5.656 c -0.1 1.48 -1.323 2.66 -2.828 2.66 Z M 4.38 16.32 c 0.74 -1.132 1.548 -3.028 1.524 -5.896 c -0.018 -2.16 0.644 -3.982 1.913 -5.267 C 8.91 4.05 10.397 3.437 12 3.43 c 1.603 0.008 3.087 0.62 4.18 1.728 c 1.27 1.285 1.933 3.106 1.915 5.267 c -0.024 2.868 0.785 4.765 1.525 5.896 H 4.38 Z">
                 </path></svg>Notificações</a>
             <a href="#"><svg class="" viewbox="0 0 24 24" width="30" height="30">
@@ -50,12 +51,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
             </div> 
         </nav>               
     </div>
-    <div class="scrollUsuario">      
-        <?php
-            $nomeUsuario = $con -> prepare("SELECT post.tweet, usuario.nome FROM post,usuario WHERE post.id = usuario.id");
-            $nomeUsuario->execute();
-            $mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC);
-        ?>
+    <div class="scrollUsuario">         
         <table>
             <tr>
                 <th class=botaoVoltar>
@@ -68,7 +64,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
                 </th>
             <?php
             echo"<th class=nomeMenu>
-                    <h3>",$mostrarNome['nome'],"<a href=# type=submit></a></h3>
+                    <h3>",$_SESSION['usuarioLogado'] ,"<a href=# type=submit></a></h3>
                 </th>";
             ?>
             </tr>
@@ -81,30 +77,28 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
                 <img class="fotoDoPerfil" src="img/foto_usuario.jpg">
                 <?php
                     echo"<th class=nomeMenu>
-                            <h3>",$mostrarNome['nome'],"<a href=# type=submit></a></h3>
+                            <h3>",$_SESSION['usuarioLogado'],"<a href=# type=submit></a></h3>
                         </th>
                         <th class=corLetra>
-                            <div><label> @",$_SESSION['sessao_id'],$mostrarNome['nome'],"</label></div>
+                            <div><label> @",$_SESSION['usuarioLogado'],"</label></div>
                         </th>";
                 ?>
             </div>
-            
             <div class="botaoDeEditar">
                 <a class="botaoEditarPerfil" name="botaoEditarPerfil" type="submit">Editar pefil</a>   
             </div>
         </div>
     <?php
-        $pegarTweets = $con -> prepare("SELECT post.tweet, usuario.nome FROM post,usuario WHERE post.id = usuario.id");
+        $pegarTweets = $con -> prepare("SELECT tweet FROM post ORDER BY idTweet ASC");
         $pegarTweets->execute();
-        while($mostrarTweets = $pegarTweets->fetch(PDO::FETCH_ASSOC))
-        {
+        while($mostrarTweets = $pegarTweets->fetch(PDO::FETCH_ASSOC)){
             echo "<div class=colunaTwitter><table >
                     <tr >
                         <th class=fotoUsuario>
                         </th>
     
                         <th class=corLetra>
-                            <h4>",$logado=$mostrarTweets['nome'],"<label> @",$_SESSION['sessao_id'],$mostrarTweets['nome']," -</label></h4>
+                            <h4>",$mostrarNome['nome'],"<label> @",$_SESSION['sessao_id'],$mostrarNome['nome']," -</label></h4>
                         </th>
                     </tr>
                     <tr>
@@ -121,30 +115,24 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id']) ):?>
                 <aside class="sugestaoSeguir">
                     <h1>Talvez você curta</h1>
                     <div class="usuarioParaSeguir">
-                        <?php 
-                        $nomeUsuario = $con -> prepare("SELECT * FROM usuario WHERE id <> 1");
-                        $nomeUsuario->execute();
-                        
-                       
-                        while($mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC)){  
-                            
-                                for($i=0; $i<=1; $i=$i++){
-                                    echo $mostrarNome['nome']."<br>";
-                                }
-                                echo "<table>
-                                    <tr>
-                                        <th class=nomeSequir>
-                                            <h4>",$mostrarNome['nome'],"</h4>
-                                        </th>
-                                        <th class=clasSeguir>
-                                            <input name=botaoSeguir type=submit value=Seguir>
-                                        </th>
-                                    </tr>
-                                </table>";
-                            
-                        }
-                        ?>                          
-                                                     
+                        <form class="" method="POST" action="seguir.php">
+                            <?php 
+                                
+                                    //include_once("conexao.php");
+                                    //$con = getConexao();
+                                    //pega do banco de dados sugestões de usuarios para seguir (execto o proprio usuario logado)
+                                    $nomeUsuario = $con -> prepare("SELECT * FROM usuario WHERE id <> 1 LIMIT 3");
+                                    $nomeUsuario->execute();
+                                    while($mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC)){  
+                                          
+                                        echo "<div class=sugestaoParaSeguir>",$mostrarNome['nome'],$mostrarNome['id'],"<input value=Seguir name=seguir type=submit></div><br>"; 
+
+                                        //var_dump($mostrarNome['id']); 
+                                            
+                                    }
+                                    
+                            ?>   
+                        </form>                                                      
                     </div>    
                 </aside> 
             </div>             

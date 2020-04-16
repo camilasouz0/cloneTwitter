@@ -7,8 +7,8 @@ if(isset($_POST['entrar'])){
 //confere se email e senha existem e se são diferentes de vazio
   if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])){
 
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $email = trim(strip_tags($_POST['email']));
+    $senha = trim(strip_tags($_POST['senha']));
 
     $buscarUsuario = $con->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha");
     $buscarUsuario->bindValue(':email', $email);
@@ -24,7 +24,8 @@ if(isset($_POST['entrar'])){
       /*
       ** Criando a sessão do usuario*/
       $_SESSION['sessao_id'] = $dado['id'];
-      header("Location: menu_usuario.php"); 
+      $_SESSION['usuarioLogado'] = $dado['nome'];
+      header("Location: menu_usuario.php");
       return true; 
       
     }else{
