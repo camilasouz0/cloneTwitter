@@ -117,20 +117,14 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SE
                     <div class="usuarioParaSeguir">
                         <form class="" method="POST" action="seguir.php">
                             <?php 
-                                
-                                    //include_once("conexao.php");
-                                    //$con = getConexao();
-                                    //pega do banco de dados sugestões de usuarios para seguir (execto o proprio usuario logado)
-                                    $nomeUsuario = $con -> prepare("SELECT * FROM usuario WHERE id <> 1 LIMIT 3");
-                                    $nomeUsuario->execute();
-                                    while($mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC)){  
-                                          
-                                        echo "<div class=sugestaoParaSeguir>",$mostrarNome['nome'],$mostrarNome['id'],"<input value=Seguir name=seguir type=submit></div><br>"; 
-
-                                        //var_dump($mostrarNome['id']); 
-                                            
-                                    }
+                                //pega do banco de dados sugestões de usuarios para seguir (execto o do usuario logado)
+                                $fulano =$_SESSION['sessao_id'];
+                                $nomeUsuario = $con -> prepare("SELECT * FROM usuario WHERE id <> '$fulano' LIMIT 3");
+                                $nomeUsuario->execute();
                                     
+                                while($mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC)){                                             
+                                    echo "<div class=sugestaoParaSeguir>",$mostrarNome['nome'],$_SESSION['naoLogadoo']=$mostrarNome['id'],"<input value=Seguir name=seguir type=submit></div><br>";                 
+                                }    
                             ?>   
                         </form>                                                      
                     </div>    
