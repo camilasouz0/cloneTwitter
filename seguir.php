@@ -4,8 +4,8 @@ $con = getConexao();
 
 if(isset($_POST['seguir'])){
         $id = $_SESSION['sessao_id'];
-        $idSegue = ($_SESSION['naoLogadoo']-1);
-
+        $idSegue = $_SESSION['idSugestaoSeguir'];
+        
         //echo $_SESSION['sessao_id'];//esse é o id do usuario logado
         
         $seguirUsuario = $con -> prepare("INSERT INTO seguirUsuario (id, idSegue) VALUES (:id, :idSegue)");

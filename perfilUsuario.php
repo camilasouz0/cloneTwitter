@@ -74,7 +74,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SE
         <div class="headerUsuario">
             <img src="img/headerDoUsuario.jpeg">
             <div class="fotoPerfil">
-                <img class="fotoDoPerfil" src="img/foto_usuario.jpg">
+                <img class="fotoDoPerfil" src="img/jovensTitas.png">
                 <?php
                     echo"<th class=nomeMenu>
                             <h3>",$_SESSION['usuarioLogado'],"<a href=# type=submit></a></h3>
@@ -115,16 +115,50 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SE
                 <aside class="sugestaoSeguir">
                     <h1>Talvez você curta</h1>
                     <div class="usuarioParaSeguir">
-                        <form class="" method="POST" action="seguir.php">
-                            <?php 
+                        <form class="" method="POST" action="seguir.php" >
+                            <?php
+                                
                                 //pega do banco de dados sugestões de usuarios para seguir (execto o do usuario logado)
-                                $fulano =$_SESSION['sessao_id'];
-                                $nomeUsuario = $con -> prepare("SELECT * FROM usuario WHERE id <> '$fulano' LIMIT 3");
-                                $nomeUsuario->execute();
+                                $fulano = $_SESSION['sessao_id'];
+                                //$buscarSeguidores = $con -> prepare("SELECT id, idSegue FROM seguirUsuario");
+
+                                //("SELECT seguirUsuario.idSegue,usuario.id,
+                                //CASE WHEN (seguirUsuario.idSegue IS NULL)
+                                //ELSE (usuario.id <> '$fulano' LIMIT 3) END FROM seguirUsuario");
+
+                                //(SELECT * FROM usuario
+                                //        WHERE id <> '$fulano')
+                                //    END FROM seguirUsuario
+
+                                //$nomeUsuario = $con -> prepare("SELECT * FROM usuario WHERE id <> '$fulano' LIMIT 3");
+                                //$nomeUsuario->execute(); 
+                                
+                                //SELECT seguirUsuario.idSegue, usuario.nome,usuario.id IF(seguirUsuario.idSegue NOT NULL) FROM seguirUsuario,usuario WHERE usuario.id <> '$fulano' LIMIT 3
+                                $sugestoesParaSeguir = $con -> prepare("SELECT usuario.nome,usuario.id FROM usuario WHERE usuario.id <> '$fulano'");
+                                $selecionaIdSegue = $con -> prepare("SELECT seguirUsuario.idSegue FROM seguirUsuario WHERE seguirUsuario.idSegue = 'id'");
+                                $sugestoesParaSeguir->execute();
+                                $selecionaIdSegue->execute();
+                                $seguidores = $sugestoesParaSeguir->fetchAll(PDO::FETCH_ASSOC);
+                                $seleciona = $selecionaIdSegue->fetch(PDO::FETCH_ASSOC);
+                                $sele = $seleciona['idSegue'];
+                                //if($sele != NULL){
+                                    foreach ($seguidores as $mostrarPSeguir) {
                                     
-                                while($mostrarNome = $nomeUsuario->fetch(PDO::FETCH_ASSOC)){                                             
-                                    echo "<div class=sugestaoParaSeguir>",$mostrarNome['nome'],$_SESSION['naoLogadoo']=$mostrarNome['id'],"<input value=Seguir name=seguir type=submit></div><br>";                 
-                                }    
+                                    //echo "<div class=sugestaoParaSeguir>",$mostrarPSeguir['nome'],$_SESSION['idSugestaoSeguir']=$mostrarPSeguir['id'],$mostrarPSeguir['idSegue'],"<input value=Seguir name=seguir type=submit></div><br>";                 
+                                    $nomeSujestoes = $mostrarPSeguir['nome'];
+                                    $_SESSION['idSugestaoSeguir'] = $mostrarPSeguir['id'];
+                                    //$idSugestao = $selec['idSegue'];
+                                    
+                                        //if($sele ){
+                                            
+                                                echo "<div class=sugestaoParaSeguir>",$nomeSujestoes,$_SESSION['idSugestaoSeguir'],"<input value=Seguir name=seguir type=submit></div><br>";
+
+                                            
+                                       // }
+                                                                                                           
+                                //} 
+                                }
+                                
                             ?>   
                         </form>                                                      
                     </div>    
