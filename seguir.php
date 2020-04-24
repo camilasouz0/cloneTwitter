@@ -2,10 +2,9 @@
 include_once("conexao.php");
 $con = getConexao();
 
-if(isset($_POST['seguir'])){
+if($_GET["idSugestao"]){
         $id = $_SESSION['sessao_id'];
-        $idSegue = $_SESSION['idSugestaoSeguir'];
-        
+        $idSegue = $_GET["idSugestao"];
         //echo $_SESSION['sessao_id'];//esse é o id do usuario logado
         
         $seguirUsuario = $con -> prepare("INSERT INTO seguirUsuario (id, idSegue) VALUES (:id, :idSegue)");
@@ -18,8 +17,6 @@ if(isset($_POST['seguir'])){
         }else{
                 echo "erro";
                 echo $idSegue;
-
         }
-        
 }
 ?>

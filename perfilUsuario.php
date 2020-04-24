@@ -114,53 +114,27 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SE
             <div class="talvezVoceCurta">
                 <aside class="sugestaoSeguir">
                     <h1>Talvez você curta</h1>
-                    <div class="usuarioParaSeguir">
+                    <div class="usuarioParaSeguir" id="resposta">
                         <form class="" method="POST" action="seguir.php" >
                             <?php
-                                
-                                //pega do banco de dados sugestões de usuarios para seguir (execto o do usuario logado)
                                 $fulano = $_SESSION['sessao_id'];
-                                //$buscarSeguidores = $con -> prepare("SELECT id, idSegue FROM seguirUsuario");
-
-                                //("SELECT seguirUsuario.idSegue,usuario.id,
-                                //CASE WHEN (seguirUsuario.idSegue IS NULL)
-                                //ELSE (usuario.id <> '$fulano' LIMIT 3) END FROM seguirUsuario");
-
-                                //(SELECT * FROM usuario
-                                //        WHERE id <> '$fulano')
-                                //    END FROM seguirUsuario
-
-                                //$nomeUsuario = $con -> prepare("SELECT * FROM usuario WHERE id <> '$fulano' LIMIT 3");
-                                //$nomeUsuario->execute(); 
-                                
+                                //pega do banco de dados sugestões de usuarios para seguir (execto o do usuario logado)
                                 //SELECT seguirUsuario.idSegue, usuario.nome,usuario.id IF(seguirUsuario.idSegue NOT NULL) FROM seguirUsuario,usuario WHERE usuario.id <> '$fulano' LIMIT 3
                                 $sugestoesParaSeguir = $con -> prepare("SELECT usuario.nome,usuario.id FROM usuario WHERE usuario.id <> '$fulano'");
-                                $selecionaIdSegue = $con -> prepare("SELECT seguirUsuario.idSegue FROM seguirUsuario WHERE seguirUsuario.idSegue = 'id'");
+                                $selecionaIdSegue = $con -> prepare("SELECT seguirUsuario.idSegue ,usuario.id FROM seguirUsuario, usuario");
                                 $sugestoesParaSeguir->execute();
                                 $selecionaIdSegue->execute();
-                                $seguidores = $sugestoesParaSeguir->fetchAll(PDO::FETCH_ASSOC);
-                                $seleciona = $selecionaIdSegue->fetch(PDO::FETCH_ASSOC);
-                                $sele = $seleciona['idSegue'];
-                                //if($sele != NULL){
-                                    foreach ($seguidores as $mostrarPSeguir) {
-                                    
-                                    //echo "<div class=sugestaoParaSeguir>",$mostrarPSeguir['nome'],$_SESSION['idSugestaoSeguir']=$mostrarPSeguir['id'],$mostrarPSeguir['idSegue'],"<input value=Seguir name=seguir type=submit></div><br>";                 
-                                    $nomeSujestoes = $mostrarPSeguir['nome'];
-                                    $_SESSION['idSugestaoSeguir'] = $mostrarPSeguir['id'];
-                                    //$idSugestao = $selec['idSegue'];
-                                    
-                                        //if($sele ){
-                                            
-                                                echo "<div class=sugestaoParaSeguir>",$nomeSujestoes,$_SESSION['idSugestaoSeguir'],"<input value=Seguir name=seguir type=submit></div><br>";
-
-                                            
-                                       // }
-                                                                                                           
-                                //} 
+                                $selec = $selecionaIdSegue->fetchAll(PDO::FETCH_ASSOC);
+                                foreach($selec as $seleciona){
+                                    $seguidor = $sugestoesParaSeguir->fetchAll(PDO::FETCH_ASSOC);
+                                    foreach($seguidor as $seguidores){
+                                        $seguidores['nome'];
+                                        $idSugestao = $seguidores['id'];                                        
+                                        echo $seguidores['nome'],"<a name=seguir href=seguir.php?idSugestao=",$idSugestao,">Seguir</a><br>";   
+                                    }         
                                 }
-                                
-                            ?>   
-                        </form>                                                      
+                            ?>                              
+                        </form>                                                  
                     </div>    
                 </aside> 
             </div>             
