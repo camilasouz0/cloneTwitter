@@ -2,7 +2,8 @@
 include_once("conexao.php");
   $con = getConexao();
 
-if(isset($_POST['entrar'])){
+  $url = isset($_GET['url']) ? $_GET['url'] : '';
+if($_GET['url'] ){
 
 //confere se email e senha existem e se são diferentes de vazio
   if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])){
@@ -25,7 +26,7 @@ if(isset($_POST['entrar'])){
       ** Criando a sessão do usuario*/
       $_SESSION['sessao_id'] = $dado['id'];
       $_SESSION['usuarioLogado'] = $dado['nome'];
-      header("Location: menu_usuario.php");
+      header("Location: menuUsuario.php");
       return true; 
       
     }else{

@@ -17,7 +17,7 @@ if(isset($_POST['meu_tweet']) && $_POST['meu_tweet'] == "Tweetar"){
         //$inserirTweet -> bindValue(':idPost', $idPost);
         $inserirTweet -> bindParam(':tweet', $tweet);
         if($inserirTweet -> execute()){
-                header("Refresh:1; url = menu_usuario.php"); //recarrega a página ao enviar tweet
+                header("Refresh:1; url = menuUsuario.php"); //recarrega a página ao enviar tweet
         }
 
 }

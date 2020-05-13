@@ -3,6 +3,7 @@
 require 'conexao.php';// a sessao inicia na conexão com o banco
 $con = getConexao();
 require 'login.php';
+$fulano = $_SESSION['sessao_id'];
             
 
 if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SESSION['usuarioLogado'])) ):?>
@@ -19,7 +20,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SE
 <div class="botoesFixado">
         <nav class="botoesColuna">
             <!-- <a><img width="30" height="30" src="img/passarinho.png"></a> -->
-            <a href="menu_usuario.php"><svg class="" viewbox="0 0 24 24" width="30" height="30">
+            <a href="menuUsuario.php"><svg class="" viewbox="0 0 24 24" width="30" height="30">
                 <path d="M 22.58 7.35 L 12.475 1.897 c -0.297 -0.16 -0.654 -0.16 -0.95 0 L 1.425 7.35 c -0.486 0.264 -0.667 0.87 -0.405 1.356 c 0.18 0.335 0.525 0.525 0.88 0.525 c 0.16 0 0.324 -0.038 0.475 -0.12 l 0.734 -0.396 l 1.59 11.25 c 0.216 1.214 1.31 2.062 2.66 2.062 h 9.282 c 1.35 0 2.444 -0.848 2.662 -2.088 l 1.588 -11.225 l 0.737 0.398 c 0.485 0.263 1.092 0.082 1.354 -0.404 c 0.263 -0.486 0.08 -1.093 -0.404 -1.355 Z M 12 15.435 c -1.795 0 -3.25 -1.455 -3.25 -3.25 s 1.455 -3.25 3.25 -3.25 s 3.25 1.455 3.25 3.25 s -1.455 3.25 -3.25 3.25 Z">
                 </path></svg>Página Inicial</a>
             <a href="#"><svg class="" viewbox="0 0 24 24" width="30" height="30">
@@ -89,22 +90,33 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SE
             </div>
         </div>
     <?php
-        $pegarTweets = $con -> prepare("SELECT tweet FROM post ORDER BY idTweet ASC");
+        //SELECT usuario.id,usuario.nome,seguirUsuario.idSegue,post.tweet,post.idTweet FROM usuario,seguirUsuario,post ORDER BY idTweet ASC
+        $iDusuariosQueSigo = $con -> prepare("SELECT seguirUsuario.id, seguirUsuario.idSegue FROM seguirUsuario WHERE seguirUsuario.id = '$fulano'");
+        $pegarTweets = $con -> prepare("SELECT usuario.nome,post.tweet, post.id FROM usuario,post WHERE post.id = usuario.id");
+        //$pegarNomes = $con -> prepare("SELECT usuario.nome FROM usuario");
+        $iDusuariosQueSigo->execute();
         $pegarTweets->execute();
-        while($mostrarTweets = $pegarTweets->fetch(PDO::FETCH_ASSOC)){
-            echo "<div class=colunaTwitter><table >
-                    <tr >
-                        <th class=fotoUsuario>
-                        </th>
-    
-                        <th class=corLetra>
-                            <h4>",$mostrarNome['nome'],"<label> @",$_SESSION['sessao_id'],$mostrarNome['nome']," -</label></h4>
-                        </th>
-                    </tr>
-                    <tr>
-                    <td class=mostrarTweet><h4>",$mostrarTweets['tweet'],"</h4></td>
-                    </tr>
-                </table></div>";    
+        //$pegarNomes->execute();
+        while($idSeguindo = $iDusuariosQueSigo->fetch(PDO::FETCH_ASSOC)){
+            while($mostrarTweets = $pegarTweets->fetch(PDO::FETCH_ASSOC)){
+                //while($mostrarNomes = $pegarNomes->fetch(PDO::FETCH_ASSOC)){
+                    if($mostrarTweets['id'] == $idSeguindo['idSegue']|| $mostrarTweets['id'] == $fulano){
+                        echo "<div class=colunaTwitter>
+                                <table>
+                                    <tr>
+                                        <th class=fotoUsuario>
+                                        </th>
+                                        <th class=corLetra>
+                                            <h4>",$mostrarTweets['nome'],"<label> @",$mostrarTweets['nome']," -</label></h4>    
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class=mostrarTweet><h4>",$mostrarTweets['tweet'],"</h4></td>
+                                    </tr>
+                                </table>
+                            </div>";  
+                } 
+            }
         }
     ?>
     </div> 
@@ -117,7 +129,6 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SE
                     <div class="usuarioParaSeguir" id="resposta">
                         <form class="" method="POST" action="seguir.php" >
                             <?php
-                                $fulano = $_SESSION['sessao_id'];
                                 //pega do banco de dados sugestões de usuarios para seguir (execto o do usuario logado)
                                 //SELECT seguirUsuario.idSegue, usuario.nome,usuario.id IF(seguirUsuario.idSegue NOT NULL) FROM seguirUsuario,usuario WHERE usuario.id <> '$fulano' LIMIT 3
                                 $sugestoesParaSeguir = $con -> prepare("SELECT usuario.nome,usuario.id FROM usuario WHERE usuario.id <> '$fulano'");

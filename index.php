@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,14 +10,24 @@
 </head>
 <body>
     <div class="formularios">
-        <form classe="formulario_nome" method="POST" action="login.php">
+        <form classe="formulario_nome" method="POST" >
                 <label class="label_1">Celular, e-mail ou nome de usuário</label>
                 <input id="email" name="email" type="email" required>        
         <!-- </form>   
         <form class="formulario_senha" method="POST" action=""> -->
             <label class="label_2">Senha</label>    
             <input id="senha" name="senha" type="password" required>  
-            <input class="estilo_botao_entrar" name="entrar" type="submit" value="Entrar">     
+            <!-- <input class="estilo_botao_entrar" name="entrar" type="submit" value="Entrar"><br> -->
+            <a class="estilo_botao_entrar" name="entrar" href="login.php?url=$1">Entrar</a>  
+            
+
+        <?php 
+            //var_dump($_GET);
+            //if ($_GET){
+            //$url = explode('/',$_GET['url']);
+            //require_once 'pages/'.$url[0].'.php';
+            //}
+        ?>
         </form>  
                      
     </div>
