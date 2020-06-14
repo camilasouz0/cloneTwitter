@@ -1,0 +1,276 @@
+.botoesFixado{
+    margin: -10px;
+    position: fixed;
+    /* background-color: grey; */
+    width: 600px;
+    height: 950px;
+}
+.botoesFixado nav{/*posição conteiner dos botães*/
+    /* background-color: darkkhaki; */
+    width: 270px;
+    height: 950px;
+    font-size: 15px;
+    position: absolute; left: 327px;
+    position: fixed;
+    border-right: 1px solid rgb(216, 226, 226);
+}
+.botoesColuna a{
+    margin: 20px;
+    /* background-color: rosybrown; */
+    font-size: 19px;
+    font-weight: bold;
+    color: rgba(29,161,242,1.00);
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.botoesColuna svg{
+    margin: 20px;
+    /* background-color: lawngreen; */
+    fill: currentcolor;
+    cursor: pointer;
+}
+.tweetar input{/*botao tweetar da coluna de botoes*/
+    outline: none; /*remove contorno azul*/
+    display:block;/*forma uma coluna */ 
+    border-radius: 30px ; /*borta arredondada*/
+    width: 200px;  /*largura */
+    height: 50px; /*altura */
+    background: rgb(29, 161, 242);/*cor do botão*/
+    font-weight: bold;/*negrito*/
+    font-size: 15px;
+    border-left: none; /*cor da borda*/
+    border-right: none;
+    border-bottom: none; 
+    border-top: none;
+}
+.scroll{/*posição de todo o scroll de tweets*/
+    position: absolute; left: 598px; top: 54px;/*posição do scroll*/
+    width: 600px;  
+    height: 1000px; /*altura */ 
+}
+.headerUsuario{/*conteiner da header so perfil usuario*/
+    width: 600px;
+    height: 430px;
+    border-bottom: 1px solid rgb(216, 226, 226); 
+}
+.fotoPerfil{/*css da foto do perfil do usuario*/
+    width:142px;
+    height:142px;
+    margin-top: -18%;
+    background-color: rgba(255,255,255,1.00);
+    border-bottom-color: rgb(255, 255, 255);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    position: absolute;
+    bottom: 735px;
+    left: 10px;
+}
+.fotoPerfil h3{
+    position: relative;  top: -16px;
+    font-size: 19px;
+    color: rgb(20, 23, 26);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+.fotoPerfil div{
+    position: relative; top:-30px;
+}
+.fotoPerfil label{
+    font-size: 19px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    color:rgb(101, 119, 134);
+    font-size: 15px;
+}
+.fotoPerfil img{
+    width: 100%;
+    height: 100%;
+    border-radius: 70px;
+}
+.botaoDeSeguir{
+    position: relative; left: 463px; top: 5px;
+    width: 118px;
+    height: 49px;
+    background-color: darkcyan;
+}
+.botaoDeSeguir{
+    color: rgb(29, 161, 242);
+    background: white;
+    border-radius: 30px;
+    width: 118px;
+    height: 39px;
+    border-left: 1px solid rgb(29, 161, 242);
+    border-right: 1px solid rgb(29, 161, 242);
+    border-bottom: 1px solid rgb(29, 161, 242);
+    border-top: 1px solid rgb(29, 161, 242);
+    font-weight: bold;
+}
+.botaoDeSeguir a{
+    position: relative; left: 20px; top: 10px;
+    font-size: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    max-width: 100%;
+}
+.scrollUsuario{/*conteiner com nome usuario fixado no topo do scrol*/
+    position: fixed;left: 598px; top: 0px;
+    width: 600px;
+    height: 53px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-bottom: 1px solid rgb(216, 226, 226); 
+}
+.scrollUsuario table{
+    padding-left: 9px;
+    padding-top: 6px;
+    /* background-color:darkcyan ; */ 
+}
+.botaoVoltar:hover{/*borda aparece passar mouse*/
+    background-color: rgb(200, 250, 219);
+    opacity:0.70;
+}
+.botaoVoltar{/*borda ao redor da seta de voltar*/
+    width: 35px;  
+    height: 35px;
+    border-radius: 45px;
+}
+.setaVoltar svg{/*cor e posição da seta voltar*/
+    position: absolute; left:17px; top:15px;
+    fill:rgb(29, 161, 242);
+}
+.nomeMenu{  
+    position: fixed;
+    cursor: pointer;/*tipo mouse*/
+}
+.nomeMenu h3{/*posição e formato da letra do nome so usuario*/
+    position: relative; left: 17px; top:-20px;
+    font-size: 19px;
+    color: rgb(20, 23, 26);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+.colunaTwitter{
+    border-bottom: 1px solid rgb(216, 226, 226);
+    width: 600px;/*largura*/
+}
+.colunaTwitter table{
+    margin: 8px;
+}
+.mostrarTweet {
+    width: 600px;/*largura*/
+    height: 100px; /*altura */
+    /*text-align: center;*/
+}
+.mostrarTweet h4{
+    color: rgb(20, 23, 26);
+    font-family: Roboto, sans-serif,;
+    font-stretch: extra-condensed;
+    position: absolute; left: 75px; 
+    margin: 6px;/*para centralizar o tweet do usuario com nome do usuario*/
+    margin-top: -20px;
+    overflow-wrap: break-word;
+}
+.fotoUsuario img{
+    position: absolute; left: 15px;
+    cursor: pointer;/*tipo mouse*/
+    width:50px;/*largura*/
+    height:50px;/*altuea*/
+    border-radius:50px;
+}
+.corLetra h4{
+    position: absolute; left: 75px;
+    margin: 6px;
+}
+.corLetra label{
+    /* color: rgb(101, 119, 134);     */
+    color:rgb(101, 119, 134);
+    font-size: 15px;
+    font-family: Ubuntu;
+    font-weight: lighter;
+}
+
+
+
+.conteinerFixado{
+    left: 1208px;
+    position: fixed;
+    margin: -10px;
+    /* background-color: rosybrown; */
+    width: 706px;
+    height: 950px;
+    border-left: 1px solid rgb(216, 226, 226); 
+}
+.midiaSugestaoSegui{
+    outline: none; /*remove contorno azul*/
+    position: absolute; left:25px;
+    /* background-color: salmon; */
+    width: 350px;
+    height: 950px;
+}
+.talvezVoceCurta{
+    position: absolute; top:283px;
+    /* background-color: darkgreen; */
+    width: 350px;
+    height: 306px;  
+}
+.talvezVoceCurta aside{
+    width: 348px;
+    height: 304px; 
+    background-color: rgb(245, 248, 250);
+    position: absolute; top:0px;
+    border-radius: 20px;
+}
+.sugestaoSeguir h1{
+    padding-left: 25px;
+    font-size: 19px;
+    color: rgb(20, 23, 26);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    border-bottom: 1px solid rgb(216, 226, 226);
+    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.usuarioParaSeguir {
+    background-color: cadetblue;
+    width: 348px;
+    height: 210px;
+    position: absolute; top:53px;
+    /* border-bottom: 1px solid rgb(216, 226, 226);  */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.buscar input{
+    outline: none; /*remove contorno azul*/
+    position: absolute; left: 1000px; top:10px;/*posição do busca*/ 
+    border-radius: 30px; /*borta arredondada*/ 
+    font-size: 17px;
+    background-color: rgb(242, 243, 243); 
+    border: none; 
+    width: 340px;/*largura*/ 
+    height: 40px;/*altura*/
+    text-align: center;
+
+}
+body{
+    overflow: auto; 
+ background-color: white;
+}
