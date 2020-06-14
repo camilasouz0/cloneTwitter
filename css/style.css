@@ -1,6 +1,6 @@
 body{
     background:linear-gradient( to right, rgb(113, 201, 248) 25%, rgb(113, 201, 248) 25%, rgb(113, 201, 248) 50%, White 10%,White 100%, White 80%, White 80%);
-    font-family: Ubuntu;
+    /* font-family: Ubuntu; */
 }
 .formularios {
     display: block;

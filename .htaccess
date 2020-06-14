@@ -1,8 +1,11 @@
-DirectoryIndex index.php
+#DirectoryIndex index.php
 
-<IfModule mod_rewrite.so>
+#<IfModule mod_rewrite.so>
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^parametros-([0-9]+)-(.*)$ parametros.php?url=$1
-</IfModule>
+#RewriteRule ^parametros-([0-9]+)-(.*)$ parametros.php?url=$1
+#RewriteRule ^index-([0-9]+)-(.*)$ index.php?pages=$1
+RewriteRule ^(.*) index.php?pagina=$1 [QSA,L]
+
+#</IfModule>

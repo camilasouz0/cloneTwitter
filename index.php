@@ -1,49 +1,46 @@
-
-
+<?php
+include_once("pages/conexao.php");
+$con = getConexao();
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <style type="text/css"></style>
-    <link rel="stylesheet" href="css/style.css">
+    <base href="http://localhost/cloneTwitter/">
     <title>Twitter</title>
 </head>
 <body>
-    <div class="formularios">
-        <form classe="formulario_nome" method="POST" >
-                <label class="label_1">Celular, e-mail ou nome de usuário</label>
-                <input id="email" name="email" type="email" required>        
-        <!-- </form>   
-        <form class="formulario_senha" method="POST" action=""> -->
-            <label class="label_2">Senha</label>    
-            <input id="senha" name="senha" type="password" required>  
-            <!-- <input class="estilo_botao_entrar" name="entrar" type="submit" value="Entrar"><br> -->
-            <a class="estilo_botao_entrar" name="entrar" href="login.php?url=$1">Entrar</a>  
-            
+    <div>
+    <?php
+			$url = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'inicio';
+			$explode = array_filter(explode('/', $url));
 
-        <?php 
-            //var_dump($_GET);
-            //if ($_GET){
-            //$url = explode('/',$_GET['url']);
-            //require_once 'pages/'.$url[0].'.php';
-            //}
-        ?>
-        </form>  
-                     
+			$pags = 'pages/';
+			$ext = '.php';
+
+			if(file_exists($pags.$explode['0'].$ext)){
+				include($pags.$explode['0'].$ext);
+			}else{
+				if(isset($explode['0']) && !empty($explode['0'])){
+
+					$nome = $explode['0'];
+				
+					$buscarUsuario = $con->prepare("SELECT * FROM usuario WHERE nome = :nome");
+					$buscarUsuario->bindValue(':nome', $nome);
+					$buscarUsuario->execute();
+				
+					if($buscarUsuario->rowCount()>0){
+					  $dado = $buscarUsuario->fetch();
+                      header("Location: home");
+					  return true; 
+					}else{
+						echo 'erro 404';
+						return false;
+					}
+				}
+			}
+		?>
     </div>
-
-    
-    <a class="estilo_esqueceu_senha" href="recuperar_senha.html">Esqueceu sua senha?</a>
-    <h1>
-        Saiba o que está 
-        acontecendo no mundo 
-        agora
-    </h1>
-    <h3>Inscreva-se no Twitter hoje mesmo.</h3>
-
-    <form class="formulario_cadastre-se">
-        <a class="cadastre-se" type="submit" name="fazer_cadastro" href="cadastro_usuario.php">Inscreva-se</a>
-        <!-- <input class="entrar" value="Entrar" type="submit"> -->
-    </form>
 </body>
 </html>
