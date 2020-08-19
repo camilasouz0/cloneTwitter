@@ -140,7 +140,7 @@ if( isset($_SESSION['sessao_id']) && !empty($_SESSION['sessao_id'] && isset($_SE
                                     foreach($seguidor as $seguidores){
                                         $seguidores['nome'];
                                         $idSugestao = $seguidores['id'];                                        
-                                        echo $seguidores['nome'],"<a name=seguir href=seguir.php?idSugestao=",$idSugestao,">Seguir</a><br>";   
+                                        echo $seguidores['nome'],"<a name=seguir href=seguir?idSugestao=",$idSugestao,">Seguir</a><br>";   
                                     }         
                                 }
                             ?>                              

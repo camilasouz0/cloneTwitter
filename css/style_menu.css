@@ -1,197 +1,212 @@
-body{
-    overflow: auto; 
-    /* font-family:Ubuntu; */
-}
-.coluna_inicial{
-    position: absolute; top: -10px; left: 340px; /*posição do formulario*/
-    font-weight: bold;/*negrito*/
-    font-size: 18px;
-}
-.coluna_inicial a:hover{/*coluna de botões muda cor ao passar mouse*/
-    outline: none; /*remove contorno azul*/
-    border-radius: 30px ; /*borta arredondada*/
-    background-color: rgb(232, 245, 254);
-    opacity:0.65;
-	-moz-opacity: 0.65;
-	filter: alpha(opacity=65);
-    color: rgb(29, 161, 242);/*cor da letra muda ao pessar o mouse*/
-    fill: rgb(29, 161, 242);
-    width: 190px;  /*largura */
-    /*height: 40px; /*altura */
-}
-.coluna_inicial svg{
-    margin-right: 20px;
-    fill: black;/*cor do botão*/
-}
-.coluna_inicial a{
-    color:black;
-    text-decoration:none;
-    /*background-image:url("img/passarinho.png");*/
-    display: block;
-    /*border-radius: 30px ; borta arredondada*/
-    width: 200px;  /*largura*/
-    height: 40px; /*altura */
-    margin: 20px;/*distancia de um botão para o outro*/
-}
-.tweetar input{
-    outline: none; /*remove contorno azul*/
-    display:block;/*forma uma coluna */ 
-    border-radius: 30px ; /*borta arredondada*/
-    width: 200px;  /*largura */
-    height: 50px; /*altura */
-    background: rgb(29, 161, 242);/*cor do botão*/
-    font-weight: bold;/*negrito*/
-    font-size: 15px;
-    border-left: none; /*cor da borda*/
-    border-right: none;
-    border-bottom: none; 
-    border-top: none;
+body, p, h1, ul, li, blockquote {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
-.scroll h3{  
-    font-size: 18px;
-    position: absolute; left: 15px; top: 0px;/*posição do scroll*/
-    cursor: pointer;/*tipo mouse*/
+body {
+  font-family: "Ubuntu";
+  width: 100vh;
+  height: 100vw;
 }
-.scroll a{
-    position: absolute; left: -15px; top: 40px;/*posição do scroll*/
-    border-bottom: 1px solid rgb(216, 226, 226); 
-    width: 600px;/*largura*/
-}
-.icon{
-    position: absolute; left: 50px; top:145px;
-}
-.icon th{
-    width: 40px;  /*largura*/
-    height: 40px; /*altura */
-}
-.icon th:hover{
-    border-radius: 30px; /*borta arredondada*/
-    opacity:0.65;
-	-moz-opacity: 0.65;
-    filter: alpha(opacity=65);
-    background-color:rgb(232, 245, 254);/*cor da borda ao passar o mouse*/
-    fill:rgb(29, 161, 242);/*cor do svg*/
-    cursor: pointer;/*tipo mouse*/
-}
-.icon svg{
-    fill:rgb(29, 161, 242);
-    margin-left: 20px;/*espaço entre os icon*/
-}
-.scroll{
-    font-weight: bold;/*negrito*/
-    position: absolute; left: 590px; top: 0px;/*posição do scroll*/
-    width: 600px;  
-    height: 1000px; /*altura */ 
-    border-left: 1px solid rgb(216, 226, 226); /*cor da borda*/
-    border-right: 1px solid rgb(216, 226, 226);
-    /* border-bottom: 1px solid rgb(216, 226, 226);  */
-    border-top: 1px solid rgb(216, 226, 226); 
 
+li {
+  list-style: none;
 }
-.postar_tweet{
-    display:block;/*forma uma coluna */ 
-    width: 600px;/*largura*/
-    height: 200px;/*altura*/
-    border-bottom: 9px solid rgb(216, 226, 226); 
-}
-.postar_tweet img{
-    position: absolute; left: 15px; top: 70px;/*posição do img*/   
-    cursor: pointer;/*tipo mouse*/
-        border-radius: 50%;
-}
-.postar_tweet input{/*area de escrever o tweet*/
-    display:block;/*forma uma coluna */ 
-    outline: none; /*remove contorno azul*/
-    border: none;/*borda ao redor do input*/
-    font-size: 18px;
-    position: absolute; left: 75px; top: 70px;/*posição do input*/
-    width: 500px;  /*largura */
-    height: 45px; /*altura */
-    float:left;
-}
-.enviar input{
-    outline: none; /*remove contorno azul*/
-    position: absolute; left: 485px; top:140px;/*posição do botão*/
-    display:block;/*forma uma coluna*/
-    border-radius: 30px; /*borta arredondada*/
-    background: rgb(29, 161, 242);/*cor do botão*/
-    color: white;
-    width: 100px;  /*largura*/
-    height: 40px; /*altura*/
-    font-size: 15px;
-    border-left: none; /*cor da borda*/
-    border-right: none;
-    border-bottom: none; 
-    border-top: none; 
-}
-::placeholder{
-    color:#9197a3;
-}
-.buscar input{
-    outline: none; /*remove contorno azul*/
-    position: absolute; left: 1220px; top:10px;/*posição do busca*/ 
-    border-radius: 30px; /*borta arredondada*/ 
-    font-size: 17px;
-    background-color: rgb(242, 243, 243); 
-    border: none; 
-    width: 340px;/*largura*/ 
-    height: 40px;/*altura*/
-    text-align: center;
 
+a {
+  text-decoration: none;
 }
-.dentro_conteiner{
-    outline: none; /*remove contorno azul*/
-    position: absolute; left: 1220px; top:70px;/*posição do formulario*/ 
-    border-radius: 30px; /*borta arredondada*/
-    font-size: 17px;
-    font-weight: bold;/*negrito*/
-    background-color: rgb(242, 243, 243);
-    width: 340px;  /*largura */
-    height: 720px; /*altura */
-    border: none;
+
+/* GRID GERAL */
+
+.sidenav{
+  grid-area: sidenav;
+  height: 100vw;
+}
+
+.content{
+  grid-area: content;
+  height: 100vw;
+}
+
+.anuncios {
+  background: yellow;
+  grid-area: anuncios;
+}
+
+.gridAnuncios{
+  grid-area: gridAnuncios ;
+  background: springgreen;
+}
+
+.paginicial {
+  grid-area: paginicial;
+}
+
+.grid {
+ /*  height: 100px;
+  width: 100vh; */
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-areas:
+    "sidenav content anuncios"
+    "sidenav paginicial"
+    ;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-areas:
+      "sidenav content anuncios"
+    ;
+  }
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "sidenav"
+      "content"
+      "anuncios"   
+    ;
+  }
+}
+
+/* SIDENAV */
+
+.sidenav {
+  border-right: 1px solid rgb(216, 226, 226); 
+}
+.posicaonav {
+  padding: 30px;
+  position: fixed;
+  left: 200px;
+}
+
+.posicaonav li a {
+  display: block;
+  min-width: 60px;
+  max-width: auto;
+  margin: 0 auto 5px auto;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: .1s ease-out; 
+}
+
+.posicaonav li a:hover {
+  background: rgb(200, 250, 219);
+  fill: rgb(29,161,242,1.00);
+}
+
+span:hover{
+  color: rgb(29,161,242,1.00);
+}
+
+.item {
+  color: black;
+  font-weight: bold;
+  font-size: 19px;
+  padding: 20px; 
+}
+
+@keyframes seta {
+  from {
+    right: 30px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .item {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .sidenav {
+    height: auto;
+  }
+  .posicaonav {
+    position: relative;
+    left: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .posicaonav::after {
+    content: '→';
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    color: rgba(0,0,0,.3);
+    animation: seta .5s ease-in 0s infinite alternate;
+  }
+  .posicaonav ul {
+    display: flex;
+  }
+  .posicaonav li {
+    flex: 1 0 60px;
+  }
+  .posicaonav li a {
+    margin: 10px 10px 10px 0;
+  }
+}
+
+/* CONTENT */
+.content {
+  border-right: 1px solid rgb(216, 226, 226); 
+}
+.paginicial {
+  border-bottom: 1px solid rgb(216, 226, 226);
+  
+}
+.paginicial h3 {
+  margin: 0 auto 10px 0;  
+  padding: 10px;
 }
 .colunaTwitter{
-    border-bottom: 1px solid rgb(216, 226, 226);
-    width: 600px;/*largura*/
+  border-bottom: 1px solid rgb(216, 226, 226);
 }
-.colunaTwitter table{
-    margin: 8px;
-}
-.mostrarTweet {
-    width: 600px;/*largura*/
-    height: 100px; /*altura */
-    /*text-align: center;*/
-}
-.mostrarTweet h4{
-    color: rgb(20, 23, 26);
-    font-family: Roboto, sans-serif,;
-    font-stretch: extra-condensed;
-    position: absolute; left: 75px; 
-    margin: 6px;/*para centralizar o tweet do usuario com nome do usuario*/
-    margin-top: -20px;
-    overflow-wrap: break-word;
-}
-.fotoUsuario img{
-    position: absolute; left: 15px;
-    cursor: pointer;/*tipo mouse*/
-    width:50px;/*largura*/
-    height:50px;/*altuea*/
-    border-radius:50px;
-}
-.corLetra h4{
-    position: absolute; left: 75px;
-    margin: 6px;
-}
-.corLetra label{
-    /* color: rgb(101, 119, 134);     */
-    color:rgb(101, 119, 134);
-    font-size: 15px;
-    font-family: Ubuntu;
-    font-weight: lighter;
+.containerPostar{
+  border-bottom: 10px solid rgb(216, 226, 226); 
 }
 
+.fotoUsuario {
+  grid-area: fotoUsuario;
+  cursor: pointer;/*tipo mouse*/
+  width:50px;/*largura*/
+  height:50px;/*altuea*/
+  border-radius:50px;
+  margin: 0 auto 10px 0;  
+  padding: 10px;
+}
 
-/* .alerta {padding: 25px;border: 1px solid gray;border-radius: 3px;margin: 10px;font-size: 18px;}.error {border-color: #e8273b;color: #FFF;background-color: #ed5565;}.sucesso {border-color: #87c940;color: #FFF;background-color: #a0d468;}.atencao {border-color: #f4a911;color: #FFF;background-color: #f6bb42;}.info {border-color: #2f80e7;color: #FFF;background-color: #5d9cec;} */
+.tweetar{
+  grid-area: tweetar;
+  background: rgb(87, 14, 75);
+  outline: 0; /*remove contorno azul*/ 
+  width: 200px;  /*largura */
+  height: 50px; /*altura */
+  font-weight: bold;/*negrito*/
+  font-size: 15px;
+  border-left: none; /*cor da borda*/
+  border-right: none;
+  border-bottom: none; 
+  border-top: none;
+}
+
+.containerImgInput {
+  display: grid; 
+  grid-template-areas:
+    "fotoUsuario tweetar";  
+}
+
+/* ANUNCIOS */
+
 
 

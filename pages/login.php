@@ -1,5 +1,5 @@
 <?php 
-include_once("../pages/conexao.php");
+include_once("conexao.php");
 $con = getConexao();
 
 /*   $url = isset($_GET['url']) ? $_GET['url'] : '';

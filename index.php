@@ -23,7 +23,7 @@ $con = getConexao();
 				include($pags.$explode['0'].$ext);
 			}else{
 				if(isset($explode['0']) && !empty($explode['0'])){
-
+					session_start();
 					$nome = $explode['0'];
 				
 					$buscarUsuario = $con->prepare("SELECT * FROM usuario WHERE nome = :nome");
@@ -31,9 +31,10 @@ $con = getConexao();
 					$buscarUsuario->execute();
 				
 					if($buscarUsuario->rowCount()>0){
-					  $dado = $buscarUsuario->fetch();
-                      header("Location: home");
-					  return true; 
+						$dado = $buscarUsuario->fetch();
+						$_SESSION['nomeHome'] = $dado['nome'];
+						header("Location: home");
+						return true; 
 					}else{
 						echo 'erro 404';
 						return false;

@@ -246,13 +246,17 @@
     /* border-bottom: 1px solid rgb(216, 226, 226);  */
 }
 
-
-
-
-
-
-
-
+@media (max-width: 760px) {
+    body {
+      grid-template-columns: 100%;
+      grid-template-areas:
+        "botoesColuna" 
+        "tweetar"
+        "content"
+        "anuncios "   
+      !important;
+    }
+  }
 
 
 

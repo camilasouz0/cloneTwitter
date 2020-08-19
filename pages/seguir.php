@@ -12,7 +12,7 @@ if($_GET["idSugestao"]){
         $seguirUsuario -> bindParam(':idSegue', $idSegue);
         
         if($seguirUsuario -> execute()){
-                header("Refresh:1; url = perfil.php"); //recarrega a página ao seguir usuario
+                header("Refresh:1; url = perfil"); //recarrega a página ao seguir usuario
                         
         }else{
                 echo "erro";
