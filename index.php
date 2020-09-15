@@ -23,7 +23,12 @@ $con = getConexao();
 				include($pags.$explode['0'].$ext);
 			}else{
 				if(isset($explode['0']) && !empty($explode['0'])){
-					session_start();
+					if( ! $_SESSION){
+						session_start();
+					}/* else{
+						header("Location: sair");
+					} */
+					
 					$nome = $explode['0'];
 				
 					$buscarUsuario = $con->prepare("SELECT * FROM usuario WHERE nome = :nome");

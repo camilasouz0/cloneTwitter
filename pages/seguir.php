@@ -7,9 +7,9 @@ if($_GET["idSugestao"]){
         $idSegue = $_GET["idSugestao"];
         //echo $_SESSION['sessao_id'];//esse é o id do usuario logado
         
-        $seguirUsuario = $con -> prepare("INSERT INTO seguirUsuario (id, idSegue) VALUES (:id, :idSegue)");
+        $seguirUsuario = $con -> prepare("INSERT INTO seguirUsuario (id) VALUES (:id)");
         $seguirUsuario -> bindParam(':id', $id);
-        $seguirUsuario -> bindParam(':idSegue', $idSegue);
+        /* $seguirUsuario -> bindParam(':idSegue', $idSegue); */
         
         if($seguirUsuario -> execute()){
                 header("Refresh:1; url = perfil"); //recarrega a página ao seguir usuario

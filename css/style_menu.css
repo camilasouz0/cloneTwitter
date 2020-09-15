@@ -5,9 +5,8 @@ body, p, h1, ul, li, blockquote {
 }
 
 body {
+  height: 100vh;
   font-family: "Ubuntu";
-  width: 100vh;
-  height: 100vw;
 }
 
 li {
@@ -28,31 +27,18 @@ a {
 .content{
   grid-area: content;
   height: 100vw;
+  width: 800px;
 }
-
-.anuncios {
-  background: yellow;
-  grid-area: anuncios;
-}
-
-.gridAnuncios{
-  grid-area: gridAnuncios ;
-  background: springgreen;
-}
-
 .paginicial {
+  border-top: 1px solid rgb(216, 226, 226);
   grid-area: paginicial;
 }
 
 .grid {
- /*  height: 100px;
-  width: 100vh; */
   display: grid;
-  grid-template-columns: auto auto auto;
   grid-template-areas:
-    "sidenav content anuncios"
-    "sidenav paginicial"
-    ;
+    "sidenav content anuncios";
+    
 }
 
 @media (max-width: 1200px) {
@@ -65,29 +51,26 @@ a {
 
 @media (max-width: 760px) {
   .grid {
-    grid-template-columns: 100%;
+    border-right: none;
+    grid-template-columns: 150%;
     grid-template-areas:
       "sidenav"
       "content"
-      "anuncios"   
+      "anuncios"    
     ;
   }
 }
 
 /* SIDENAV */
 
-.sidenav {
-  border-right: 1px solid rgb(216, 226, 226); 
-}
 .posicaonav {
   padding: 30px;
-  position: fixed;
   left: 200px;
 }
 
 .posicaonav li a {
   display: block;
-  min-width: 60px;
+  width: 190px;
   max-width: auto;
   margin: 0 auto 5px auto;
   background: white;
@@ -132,6 +115,7 @@ span:hover{
     height: auto;
   }
   .posicaonav {
+    padding: 0;
     position: relative;
     left: 0;
     overflow-x: auto;
@@ -152,28 +136,49 @@ span:hover{
   .posicaonav li {
     flex: 1 0 60px;
   }
-  .posicaonav li a {
-    margin: 10px 10px 10px 0;
-  }
 }
 
 /* CONTENT */
+
+@media (max-width: 760px) {
+  .content{
+      border-right: none !important;
+  }
+}
+
 .content {
-  border-right: 1px solid rgb(216, 226, 226); 
+  height: 100vw !important;
+  
 }
 .paginicial {
   border-bottom: 1px solid rgb(216, 226, 226);
+  border-left: 1px solid rgb(216, 226, 226);
+  border-right: 1px solid rgb(216, 226, 226);
   
 }
 .paginicial h3 {
   margin: 0 auto 10px 0;  
   padding: 10px;
 }
-.colunaTwitter{
+
+.containerPostar {
+  border-left: 1px solid rgb(216, 226, 226);
+  border-right: 1px solid rgb(216, 226, 226);
   border-bottom: 1px solid rgb(216, 226, 226);
+} 
+.colunaTwitter{
+  /* border-bottom: 1px solid rgb(216, 226, 226); */
+  border-left: 1px solid rgb(216, 226, 226);
+  border-right: 1px solid rgb(216, 226, 226);
+  padding: 10px 50px 100px;
+
 }
-.containerPostar{
-  border-bottom: 10px solid rgb(216, 226, 226); 
+
+@media (max-width: 760px) {
+  .colunaTwitter {
+   
+  }
+
 }
 
 .fotoUsuario {
@@ -181,32 +186,87 @@ span:hover{
   cursor: pointer;/*tipo mouse*/
   width:50px;/*largura*/
   height:50px;/*altuea*/
-  border-radius:50px;
-  margin: 0 auto 10px 0;  
-  padding: 10px;
+  border-radius: 50px;
+  padding-top: 5px;
+  margin-right: 10px;
 }
 
 .tweetar{
   grid-area: tweetar;
-  background: rgb(87, 14, 75);
-  outline: 0; /*remove contorno azul*/ 
-  width: 200px;  /*largura */
-  height: 50px; /*altura */
-  font-weight: bold;/*negrito*/
+  outline: 0;
+  width: 300px;
+  height: 50px;
+  font-weight: bold;
   font-size: 15px;
-  border-left: none; /*cor da borda*/
+  border-left: none;
   border-right: none;
   border-bottom: none; 
   border-top: none;
 }
 
 .containerImgInput {
-  display: grid; 
-  grid-template-areas:
-    "fotoUsuario tweetar";  
+  border-bottom: 10px solid rgb(216, 226, 226);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding: 10px 50px 20px;
 }
+
+.botaoEnviar {
+  outline: none;
+  border-radius: 30px;
+  background: rgb(29, 161, 242);
+  color: white;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  border-left: none;
+  border-right: none;
+  border-bottom: none; 
+  border-top: none; 
+}
+
+.mostrarTweet {
+
+}
+
+.containerLike {
+  background: dodgerblue;
+  border-bottom: 1px solid rgb(216, 226, 226);
+  border-right: 1px solid rgb(216, 226, 226);
+  border-left: 1px solid rgb(216, 226, 226);
+  padding: 10px 50px ;
+}
+
 
 /* ANUNCIOS */
 
+@media (max-width: 760px) {
+  .gridAnuncios{
+    display: none;
+  }
+}
 
+.buscar input{
+  outline: none;
+  border-radius: 30px;
+  font-size: 17px;
+  background-color: rgb(242, 243, 243); 
+  border: none; 
+  width: 340px;
+  height: 40px;
+  text-align: center;
+  margin: 15px 0 0 0;
+}
+
+.dentro_conteiner{
+  outline: none;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: rgb(242, 243, 243);
+  width: 340px;
+  height: 720px;
+  border: none;
+  margin: 15px 0 0 0;
+}
 

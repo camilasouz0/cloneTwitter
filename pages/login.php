@@ -29,15 +29,15 @@ if($_GET['url'] ){ */
       $_SESSION['usuarioLogado'] = $dado['nome'];
       header("Location: ../menuUsuario");
       return true; 
-      
+
     }else{
-        echo 'Usuário e(ou) senha inválido!';
-        return false;
+      echo 'Usuário e(ou) senha inválido!';
+      return false;
     }
 
-}else{
-  header("Location: inicio");
-}  
+  }else{
+    header("Location: inicio");
+  }  
 
 }
 

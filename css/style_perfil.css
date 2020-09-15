@@ -1,50 +1,275 @@
-.botoesFixado{
-    margin: -10px;
-    position: fixed;
-    /* background-color: grey; */
-    width: 600px;
-    height: 950px;
-}
-.botoesFixado nav{/*posição conteiner dos botães*/
-    /* background-color: darkkhaki; */
-    width: 270px;
-    height: 950px;
-    font-size: 15px;
-    position: absolute; left: 327px;
-    position: fixed;
-    border-right: 1px solid rgb(216, 226, 226);
-}
-.botoesColuna a{
-    margin: 20px;
-    /* background-color: rosybrown; */
-    font-size: 19px;
+body, p, h1, ul, li, blockquote {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    font-family: "Ubuntu";
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* GRID GERAL */
+  
+  .sidenav{
+    grid-area: sidenav;
+    height: 100vw;
+  }
+  
+  .content{
+    grid-area: content;
+    height: 100vw;
+    width: 800px;
+  }
+  .paginicial {
+    border-top: 1px solid rgb(216, 226, 226);
+    grid-area: paginicial;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-areas:
+      "sidenav content anuncios";
+      
+  }
+  
+  @media (max-width: 1200px) {
+    .grid {
+      grid-template-areas:
+        "sidenav content anuncios"
+      ;
+    }
+  }
+  
+  @media (max-width: 760px) {
+    .grid {
+      border-right: none;
+      grid-template-columns: 150%;
+      grid-template-areas:
+        "sidenav"
+        "content"
+        "anuncios"    
+      ;
+    }
+  }
+  
+  /* SIDENAV */
+  
+  .posicaonav {
+    padding: 30px;
+    left: 200px;
+  }
+  
+  .posicaonav li a {
+    display: block;
+    width: 190px;
+    max-width: auto;
+    margin: 0 auto 5px auto;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    transition: .1s ease-out; 
+  }
+  
+  .posicaonav li a:hover {
+    background: rgb(200, 250, 219);
+    fill: rgb(29,161,242,1.00);
+  }
+  
+  span:hover{
+    color: rgb(29,161,242,1.00);
+  }
+  
+  .item {
+    color: black;
     font-weight: bold;
-    color: rgba(29,161,242,1.00);
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-}
-.botoesColuna svg{
-    margin: 20px;
-    /* background-color: lawngreen; */
-    fill: currentcolor;
-    cursor: pointer;
-}
-.tweetar input{/*botao tweetar da coluna de botoes*/
-    outline: none; /*remove contorno azul*/
-    display:block;/*forma uma coluna */ 
-    border-radius: 30px ; /*borta arredondada*/
-    width: 200px;  /*largura */
-    height: 50px; /*altura */
-    background: rgb(29, 161, 242);/*cor do botão*/
-    font-weight: bold;/*negrito*/
+    font-size: 19px;
+    padding: 20px; 
+  }
+  
+  @keyframes seta {
+    from {
+      right: 30px;
+    }
+    to {
+      right: 20px;
+    }
+  }
+  
+  @media (max-width: 1400px) {
+    .item {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 760px) {
+    .sidenav {
+      height: auto;
+    }
+    .posicaonav {
+      padding: 0;
+      position: relative;
+      left: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    .posicaonav::after {
+      content: '→';
+      position: absolute;
+      top: 5px;
+      right: 30px;
+      color: rgba(0,0,0,.3);
+      animation: seta .5s ease-in 0s infinite alternate;
+    }
+    .posicaonav ul {
+      display: flex;
+    }
+    .posicaonav li {
+      flex: 1 0 60px;
+    }
+  }
+  
+  /* CONTENT */
+  
+  @media (max-width: 760px) {
+    .content{
+        border-right: none !important;
+    }
+  }
+  
+  .content {
+    height: 100vw !important;
+    
+  }
+  .paginicial {
+    border-bottom: 1px solid rgb(216, 226, 226);
+    border-left: 1px solid rgb(216, 226, 226);
+    border-right: 1px solid rgb(216, 226, 226);
+    
+  }
+  .paginicial h3 {
+    margin: 0 auto 10px 0;  
+    padding: 10px;
+  }
+  
+  .containerPostar {
+    border-left: 1px solid rgb(216, 226, 226);
+    border-right: 1px solid rgb(216, 226, 226);
+    border-bottom: 1px solid rgb(216, 226, 226);
+  } 
+  .colunaTwitter{
+    /* border-bottom: 1px solid rgb(216, 226, 226); */
+    border-left: 1px solid rgb(216, 226, 226);
+    border-right: 1px solid rgb(216, 226, 226);
+    padding: 10px 50px 100px;
+  
+  }
+  
+  @media (max-width: 760px) {
+    .colunaTwitter {
+     
+    }
+  
+  }
+  
+  .fotoUsuario {
+    grid-area: fotoUsuario;
+    cursor: pointer;/*tipo mouse*/
+    width:50px;/*largura*/
+    height:50px;/*altuea*/
+    border-radius: 50px;
+    padding-top: 5px;
+    margin-right: 10px;
+  }
+  
+  .tweetar{
+    grid-area: tweetar;
+    outline: 0;
+    width: 300px;
+    height: 50px;
+    font-weight: bold;
     font-size: 15px;
-    border-left: none; /*cor da borda*/
+    border-left: none;
     border-right: none;
     border-bottom: none; 
     border-top: none;
-}
+  }
+  
+  .containerImgInput {
+    border-bottom: 10px solid rgb(216, 226, 226);
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 10px 50px 20px;
+  }
+  
+  .botaoEnviar {
+    outline: none;
+    border-radius: 30px;
+    background: rgb(29, 161, 242);
+    color: white;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border-left: none;
+    border-right: none;
+    border-bottom: none; 
+    border-top: none; 
+  }
+  
+  .mostrarTweet {
+  
+  }
+  
+  .containerLike {
+    border-bottom: 1px solid rgb(216, 226, 226);
+    border-right: 1px solid rgb(216, 226, 226);
+    border-left: 1px solid rgb(216, 226, 226);
+    padding: 10px 50px ;
+  }
+  
+  /* ANUNCIOS */
+  
+  @media (max-width: 760px) {
+    .gridAnuncios{
+      display: none;
+    }
+  }
+  
+  .buscar input{
+    outline: none;
+    border-radius: 30px;
+    font-size: 17px;
+    background-color: rgb(242, 243, 243); 
+    border: none; 
+    width: 340px;
+    height: 40px;
+    text-align: center;
+    margin: 15px 0 0 0;
+  }
+  
+  .dentro_conteiner{
+    outline: none;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: rgb(242, 243, 243);
+    width: 340px;
+    height: 720px;
+    border: none;
+    margin: 15px 0 0 0;
+  }
+  
+  
+
 .scroll{/*posição de todo o scroll de tweets*/
     position: absolute; left: 598px; top: 54px;/*posição do scroll*/
     width: 600px;  
